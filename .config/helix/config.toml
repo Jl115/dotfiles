@@ -1,0 +1,54 @@
+# Wishlist
+# - buffer picker: easy switch to MRU buffer (space+f+enter)
+# - file tree
+# - eslinting?
+
+theme = "onedark"
+
+[editor]
+line-number = "relative"
+scrolloff = 5
+middle-click-paste = false
+shell = ["bash", "-c"]
+true-color = true
+rulers = [120]
+auto-format = false # not yet
+cursorline = true
+gutters = ["diagnostics", "line-numbers", "spacer", "diff"]
+
+[editor.soft-wrap]
+enable = true
+wrap-indicator = ''
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.file-picker]
+hidden = false
+
+[editor.statusline]
+left = ["version-control", "spacer", "separator", "file-name", "file-modification-indicator"]
+center = []
+right = ["diagnostics", "position", "file-line-ending"]
+
+[editor.indent-guides]
+render = true
+character = "╎"
+
+[keys.normal]
+# I've gotten used to not having to press shift or space to activate certain commands
+',' = { p = "file_picker", b = "buffer_picker", a = "select_all", ',' = "keep_primary_selection" }
+# Prefer 'xdp' to be a no-op
+p = "paste_before"
+P = "paste_after"
+# Change o swap to be consistent with p swap
+o = "open_above"
+O = "open_below"
+# alternative to 'gs' and 'gl' that I am used to
+H = "goto_first_nonwhitespace"
+L = "goto_line_end"
+# simulate vim plugin
+g = { c = "toggle_comments" }
+
+[keys.insert]
+j = { k = "normal_mode" }
