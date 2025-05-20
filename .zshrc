@@ -213,6 +213,13 @@ alias aidero="aider --model ollama/qwen2.5-coder --no-show-model-warnings"
 alias f="fvm flutter"
 alias d="fvm dart"
 alias gu="git reset --soft HEAD~1"
+
+
+function nv() {
+  nvim ${1:+$1}
+}
+
+
 function migration() { 
    npx sequelize-cli migration:generate --name "$1"
 }
