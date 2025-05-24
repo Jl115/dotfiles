@@ -19,8 +19,6 @@ return {
         "clangd",
         "clang-format",
         -- LSPs
-        "typescript-language-server",
-        "vue-language-server",
         "lua-language-server",
         "jdtls",
         "java-debug-adapter", -- from mason-nvim-dap
