@@ -213,7 +213,8 @@ alias aidero="aider --model ollama/qwen2.5-coder --no-show-model-warnings"
 alias f="fvm flutter"
 alias d="fvm dart"
 alias gu="git reset --soft HEAD~1"
-
+alias vp-log="ssh -p 58291 root@31.97.36.220"
+alias vp-kube="ssh -L 6443:127.0.0.1:6443 root@31.97.36.220 -p 58291"
 
 function nv() {
   nvim ${1:+$1}
@@ -256,6 +257,10 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 export OLLAMA_API_BASE=http://127.0.0.1:11434
 export PATH="/usr/local/opt/trash/bin:$PATH"
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - zsh)"
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
