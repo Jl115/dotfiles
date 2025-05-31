@@ -9,7 +9,6 @@ return {
     },
     opts = {
       servers = {
-        tsserver = {},
         volar = {
           filetypes = {
             "vue",
@@ -23,41 +22,7 @@ return {
       setup = {
         tsserver = function(_, opts)
           require("typescript").setup({ server = opts })
-
-          local util = require("lspconfig.util")
-          opts.root_dir = function(fname)
-            local js_root = util.search_ancestors(fname, function(dir)
-              return vim.fn.filereadable(dir .. "/jsconfig.json") == 1 and dir or nil
-            end)
-            return js_root or util.root_pattern("package.json", "tsconfig.json", ".git")(fname)
-          end
-        end,
-
-        volar = function(_, opts)
-          local local_ts = vim.fn.getcwd() .. "/node_modules/typescript/lib"
-          local global_ts = vim.fn.trim(vim.fn.system("npm root -g")) .. "/typescript/lib"
-
-          local tsdk = vim.fn.isdirectory(local_ts) == 1 and local_ts
-            or (vim.fn.isdirectory(global_ts) == 1 and global_ts)
-            or (vim.fn.stdpath("data") .. "/mason/packages/typescript-language-server/node_modules/typescript/lib")
-
-          opts.init_options = {
-            typescript = { tsdk = tsdk },
-          }
-
-          opts.settings = {
-            typescript = {
-              inlayHints = {
-                includeInlayParameterNameHints = "none",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = false,
-                includeInlayVariableTypeHints = false,
-                includeInlayPropertyDeclarationTypeHints = false,
-                includeInlayFunctionLikeReturnTypeHints = false,
-                includeInlayEnumMemberValueHints = false,
-              },
-            },
-          }
+          return true -- verhindert doppelten tsserver-Start
         end,
       },
       on_attach = function(client, buffer)
