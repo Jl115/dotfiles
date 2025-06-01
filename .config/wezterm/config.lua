@@ -51,7 +51,7 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
-config.animation_fps = 1
+config.animation_fps = 144
 config.cursor_blink_rate = 800
 config.enable_scroll_bar = false
 config.enable_kitty_graphics = true

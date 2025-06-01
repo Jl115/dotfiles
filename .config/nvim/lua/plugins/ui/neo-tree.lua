@@ -37,20 +37,6 @@ return {
     },
 
     popup_border_style = "rounded",
-event_handlers = {
-  {
-    event = "after_render",
-    handler = function()
-      local ok, state = pcall(require, "neo-tree.sources.manager")
-      if not ok then return end
-      local fs = state.get_state("filesystem")
-      if not require("neo-tree.sources.common.preview").is_active() then
-        fs.config = { use_float = false, use_image_nvim = true, title = "Neo-tree Preview" }
-        fs.commands.toggle_preview(fs)
-      end
-    end,
-  },
-},
 
     default_component_configs = {
       indent = {

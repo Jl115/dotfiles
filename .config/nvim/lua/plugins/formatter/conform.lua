@@ -12,6 +12,7 @@ return {
       vue = { "prettierd" },
       c = { "clang_format" },
       cpp = { "clang_format" },
+      python = { "ruff", "ruff_organize_imports", "ruff_format" },
     },
     linters_by_ft = {
       javascript = { "eslint_d" },

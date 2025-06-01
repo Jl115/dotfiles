@@ -267,3 +267,4 @@ eval "$(pyenv init - zsh)"
 [[ -f /Users/joelevo/.dart-cli-completion/zsh-config.zsh ]] && . /Users/joelevo/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
+export TERM=wezterm

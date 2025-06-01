@@ -9,7 +9,7 @@ return {
     },
     opts = {
       servers = {
-        volar = {
+        vtsls = {
           filetypes = {
             "vue",
             "javascript",
@@ -19,18 +19,6 @@ return {
           },
         },
       },
-      setup = {
-        tsserver = function(_, opts)
-          require("typescript").setup({ server = opts })
-          return true -- verhindert doppelten tsserver-Start
-        end,
-      },
-      on_attach = function(client, buffer)
-        if client.name == "tsserver" then
-          vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
-          vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { buffer = buffer, desc = "Rename File" })
-        end
-      end,
     },
   },
 

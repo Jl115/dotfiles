@@ -10,7 +10,7 @@ return {
         auto_trigger = true, -- Automatically show suggestions
         debounce = 150, -- Reduce input delay
         keymap = {
-          accept = "<Tab>", -- Accept Copilot suggestion
+          accept = "*", -- Accept Copilot suggestion
           prev = "£", -- Previous suggestion
           dismiss = "q", -- Dismiss suggestion
         },

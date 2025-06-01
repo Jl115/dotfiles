@@ -1,35 +1,61 @@
 return {
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = { "hrsh7th/cmp-emoji", "L3MON4D3/LuaSnip" },
-    optional = true,
-    ---@param opts cmp.ConfigSchema
-    opts = function(_, opts)
-      local cmp = require("cmp")
-
-      opts.sources = {
-        { name = "luasnip", priority = 1000 },
-        { name = "nvim_lsp", priority = 900 },
-        { name = "path", priority = 800 },
-        { name = "buffer", priority = 700 },
-        { name = "emoji", priority = 600 },
-        { name = "copilot", priority = 100 },
-      }
-
-      opts.sorting = {
-        priority_weight = 3, -- Increased from 2 to 3
-        comparators = {
-          cmp.config.compare.offset,
-          cmp.config.compare.exact,
-          cmp.config.compare.priority, -- Move priority up
-          cmp.config.compare.score,
-          cmp.config.compare.recently_used,
-          cmp.config.compare.locality,
-          cmp.config.compare.kind,
-          cmp.config.compare.length,
-          cmp.config.compare.order,
+  "saghen/blink.cmp",
+  event = "InsertEnter",
+  enabled = true,
+  lazy = false,
+  dependencies = { "nvim-lua/plenary.nvim" },
+  opts = {
+    snippets = {
+      expand = function(snippet, _)
+        return LazyVim.cmp.expand(snippet)
+      end,
+    },
+    appearance = {
+      use_nvim_cmp_as_default = false,
+      nerd_font_variant = "mono",
+    },
+    completion = {
+      accept = {
+        auto_brackets = { enabled = true },
+      },
+      menu = {
+        draw = {
+          treesitter = { "lsp" },
         },
-      }
-    end,
+      },
+      documentation = {
+        auto_show = true,
+        auto_show_delay_ms = 200,
+      },
+      ghost_text = {
+        enabled = vim.g.ai_cmp,
+      },
+    },
+    sources = {
+      default = {
+        "snippets",
+        "lsp",
+        "path",
+        "buffer",
+      },
+    },
+    cmdline = {
+      enabled = false,
+    },
+    keymap = {
+      preset = "enter", -- disables all default mappings including <Tab> and <CR>
+      ["<C-y>"] = { "select_and_accept" },
+    },
+
+    ui = {
+      border = "rounded",
+      max_height = 12,
+      scrollbar = true,
+      winhighlight = "Normal:BlinkCmpWindow,FloatBorder:FloatBorder",
+    },
   },
+  config = function(_, opts)
+    vim.api.nvim_set_hl(0, "BlinkCmpWindow", { bg = "#2e0a22" })
+    require("blink.cmp").setup(opts)
+  end,
 }

@@ -25,6 +25,9 @@ return {
       dashboard.button("g", "🔍  Live Grep", ":Telescope live_grep<CR>"),
       dashboard.button("s", "💾  Restore Session", ":lua require('persistence').load()<CR>"),
       dashboard.button("c", "⚙️  Config", ":e $MYVIMRC<CR>"),
+      dashboard.button("l", "📜  Lazy", ":Lazy<CR>"),
+      dashboard.button("x", "📜  LazyExtras", ":LazyExtras<CR>"),
+      dashboard.button("t", "📝  Todo List", ":TodoTelescope<CR>"),
       dashboard.button("q", "⏻  Quit", ":qa<CR>"),
     }
 

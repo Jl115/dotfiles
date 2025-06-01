@@ -75,6 +75,7 @@ map("v", "zz", "<cmd>ZenMode<CR>", { noremap = true, silent = true, desc = "Esca
 -- Remap Shift+U to redo (Ctrl+R)
 map("n", "U", "<C-r>", { desc = "Redo" })
 
+map("i", "<Tab>", "<Tab>", { noremap = true, silent = true })
 map({ "i" }, "<C-K>", function()
   ls.expand()
 end, { silent = true })
