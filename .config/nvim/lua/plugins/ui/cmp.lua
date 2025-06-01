@@ -42,6 +42,7 @@ return {
     cmdline = {
       enabled = false,
     },
+
     keymap = {
       preset = "enter", -- disables all default mappings including <Tab> and <CR>
       ["<C-y>"] = { "select_and_accept" },
