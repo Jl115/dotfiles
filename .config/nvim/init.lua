@@ -3,6 +3,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.g.flutter_tools_decorations = {}
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
+require("config.lsp")
 -- Set up transparency for UI elements
 vim.cmd([[
   " General UI transparency
@@ -50,12 +51,12 @@ vim.cmd([[
   highlight CursorLineNr guibg=NONE ctermbg=NONE
   highlight FoldColumn guibg=NONE ctermbg=NONE
   highlight Folded guibg=NONE ctermbg=NONE
-  
+
   " Floating windows transparency
   highlight FloatBorder guibg=NONE ctermbg=NONE
   highlight FloatShadow guibg=NONE ctermbg=NONE
   highlight FloatShadowThrough guibg=NONE ctermbg=NONE
-  
+
   " Search and selection transparency
 
   " Message area transparency

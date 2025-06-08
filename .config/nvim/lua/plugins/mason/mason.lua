@@ -5,28 +5,33 @@ return {
     lazy = false,
     opts = {
       ensure_installed = {
-        -- Linting/formatting
+        -- Linting/Formatting
         "stylua",
         "shellcheck",
         "shfmt",
         "flake8",
-        "eslint-lsp",
         "prettierd",
-        "rust-analyzer",
-        "pyright",
         "ruff",
-        "codelldb", -- if using rust-tools DAP
-        "clangd",
         "clang-format",
         -- LSPs
         "lua-language-server",
+        "vtsls", -- replaces typescript-language-server
+        "vue-language-server",
+        "eslint-lsp",
+        "dockerfile-language-server",
+        "docker-compose-language-service",
+        "rust-analyzer",
+        "pyright",
         "jdtls",
-        "java-debug-adapter", -- from mason-nvim-dap
-        "java-test",
-        -- DAP
+        "marksman",
+        "clangd",
+
+        -- Debugging / DAP
+        "codelldb",
         "js-debug-adapter",
+        "java-debug-adapter",
+        "java-test",
       },
     },
   },
-  -- { "mason-org/mason-lspconfig.nvim", version = "^1.0.0" },
 }

@@ -1,6 +1,9 @@
 -- Autocmds are automatically loaded on the VeryLazy event
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 
+-- load autocmgs for lsps
+require("config.lsp-autocmds")
+
 local orig_buf_set_extmark = vim.api.nvim_buf_set_extmark
 vim.api.nvim_buf_set_extmark = function(buf, ns, row, col, opts)
   local ok, ret = pcall(orig_buf_set_extmark, buf, ns, row, col, opts)
