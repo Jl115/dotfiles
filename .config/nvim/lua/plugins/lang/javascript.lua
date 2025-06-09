@@ -29,6 +29,7 @@ return {
       },
       setup = {
         tsserver = function(_, opts)
+          opts.capabilities = require("blink.cmp").get_lsp_capabilities(opts.capabilities)
           require("typescript").setup({ server = opts })
 
           local util = require("lspconfig.util")

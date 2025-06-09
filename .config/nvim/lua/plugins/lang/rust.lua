@@ -11,6 +11,8 @@ return {
       },
       setup = {
         rust_analyzer = function(_, opts)
+          opts.capabilities = require("blink.cmp").get_lsp_capabilities(opts.capabilities)
+
           local rust_tools = require("rust-tools")
 
           rust_tools.setup({

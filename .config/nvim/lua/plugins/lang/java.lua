@@ -14,6 +14,7 @@ return {
       },
       setup = {
         jdtls = function(_, opts)
+          opts.capabilities = require("blink.cmp").get_lsp_capabilities(opts.capabilities)
           local jdtls = require("jdtls")
           local util = require("lspconfig.util")
 

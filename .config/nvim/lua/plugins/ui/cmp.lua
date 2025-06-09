@@ -39,24 +39,17 @@ return {
         "buffer",
       },
     },
+
     cmdline = {
       enabled = false,
+      sources = {
+        "cmdline",
+        "path",
+      },
     },
-
     keymap = {
-      preset = "enter", -- disables all default mappings including <Tab> and <CR>
+      preset = "enter", -- keep original keybindings (no <Tab>/<CR>)
       ["<C-y>"] = { "select_and_accept" },
     },
-
-    ui = {
-      border = "rounded",
-      max_height = 12,
-      scrollbar = true,
-      winhighlight = "Normal:BlinkCmpWindow,FloatBorder:FloatBorder",
-    },
   },
-  config = function(_, opts)
-    vim.api.nvim_set_hl(0, "BlinkCmpWindow", { bg = "#2e0a22" })
-    require("blink.cmp").setup(opts)
-  end,
 }
