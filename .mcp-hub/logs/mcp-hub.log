@@ -1,29 +1,4 @@
 SSE client connected
 SSE_CONNECTION_ERROR: aborted
+Starting timer for auto shutdown (600000ms)
 SSE client disconnected
-Config file change detected
-Config loaded successfully from /Users/jldev/.config/mcphub/servers.json
-Using marketplace name for server 'github.com/upstash/context7-mcp'
-Config changes processed
-github.com/upstash/context7-mcp stderr: Context7 Documentation MCP Server running on stdio
-'github.com/upstash/context7-mcp' MCP server connected
-Added new server 'github.com/upstash/context7-mcp'
-Config file change detected
-Config loaded successfully from /Users/jldev/.config/mcphub/servers.json
-No significant config changes detected
-SSE_CONNECTION_ERROR: aborted
-SSE client disconnected
-Refreshing capabilities from all servers
-Refreshed all servers
-Config file change detected
-Config loaded successfully from /Users/jldev/.config/mcphub/servers.json
-Config changes processed
-'github.com/upstash/context7-mcp' transport closed
-Server 'github.com/upstash/context7-mcp' disabled
-'github.com/upstash/context7-mcp' transport closed
-Config file change detected
-Config loaded successfully from /Users/jldev/.config/mcphub/servers.json
-Config changes processed
-github.com/upstash/context7-mcp stderr: Context7 Documentation MCP Server running on stdio
-'github.com/upstash/context7-mcp' MCP server connected
-Server 'github.com/upstash/context7-mcp' enabled
