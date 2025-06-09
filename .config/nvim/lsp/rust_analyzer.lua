@@ -1,8 +1,7 @@
----@type vim.lsp.Config
 return {
   cmd = { "rust-analyzer" },
   filetypes = { "rust" },
-  root_dir = require("lspconfig.util").root_pattern("Cargo.toml", ".git"),
+  root_markers = { "Cargo.toml", ".git" },
   single_file_support = false,
   log_level = vim.lsp.protocol.MessageType.Warning,
   settings = {

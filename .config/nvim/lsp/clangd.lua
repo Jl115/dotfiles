@@ -1,4 +1,3 @@
----@type vim.lsp.Config
 return {
   cmd = {
     "clangd",
@@ -7,7 +6,7 @@ return {
     "--completion-style=detailed",
   },
   filetypes = { "c", "cpp", "objc", "objcpp" },
-  root_dir = require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt", ".git"),
+  root_markers = { "compile_commands.json", "compile_flags.txt", ".git" },
   single_file_support = false,
   log_level = vim.lsp.protocol.MessageType.Warning,
   capabilities = {

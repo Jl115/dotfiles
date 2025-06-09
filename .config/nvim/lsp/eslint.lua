@@ -1,4 +1,3 @@
----@type vim.lsp.Config
 return {
   cmd = { "vscode-eslint-language-server", "--stdio" },
   filetypes = {
@@ -9,7 +8,7 @@ return {
     "vue",
     "svelte",
   },
-  root_dir = require("lspconfig.util").root_pattern(
+  root_markers = {
     ".eslintrc",
     ".eslintrc.js",
     ".eslintrc.cjs",
@@ -17,8 +16,8 @@ return {
     ".eslintrc.yml",
     ".eslintrc.yaml",
     "package.json",
-    ".git"
-  ),
+    ".git",
+  },
   single_file_support = false,
   log_level = vim.lsp.protocol.MessageType.Warning,
   settings = {

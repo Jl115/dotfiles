@@ -1,21 +1,21 @@
----@type vim.lsp.Config
 return {
   name = "vtsls", -- only if file is named tsserver.lua
   cmd = { "vtsls", "--stdio" },
   filetypes = {
+    "vue",
     "javascript",
     "typescript",
     "javascriptreact",
     "typescriptreact",
   },
-  root_dir = require("lspconfig.util").root_pattern(
+  root_markers = {
     "vite.config.ts",
     "next.config.js",
     "jsconfig.json",
     "tsconfig.json",
     "package.json",
-    ".git"
-  ),
+    ".git",
+  },
   single_file_support = false,
   log_level = vim.lsp.protocol.MessageType.Warning,
   telemetry = {

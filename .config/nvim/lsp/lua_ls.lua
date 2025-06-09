@@ -1,8 +1,7 @@
----@type vim.lsp.Config
 return {
   cmd = { "lua-language-server" },
   filetypes = { "lua" },
-  root_dir = require("lspconfig.util").root_pattern(
+  root_markers = {
     ".luarc.json",
     ".luarc.jsonc",
     ".luacheckrc",
@@ -10,8 +9,8 @@ return {
     "stylua.toml",
     "selene.toml",
     "selene.yml",
-    ".git"
-  ),
+    ".git",
+  },
   single_file_support = false,
   log_level = vim.lsp.protocol.MessageType.Warning,
   settings = {

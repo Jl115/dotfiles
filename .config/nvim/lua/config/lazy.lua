@@ -62,11 +62,7 @@ require("lazy").setup({
     {
       "LazyVim/LazyVim",
       import = "lazyvim.plugins",
-      opts = {
-        extras = {
-          "lazyvim.plugins.extras.lsp.none-ls",
-        },
-      },
+      opts = {},
     },
     -- Add all plugin specs individually
     unpack(plugin_specs),

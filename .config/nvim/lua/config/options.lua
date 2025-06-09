@@ -3,7 +3,8 @@
 -- Add any additional options here
 vim.opt.scrolloff = 15
 vim.g.lazyvim_picker = "telescope"
-
+vim.opt.spell = true
+vim.opt.spelllang = { "en" }
 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 vim.g.custom_cursor_mode = true -- Toggle this setting
 
