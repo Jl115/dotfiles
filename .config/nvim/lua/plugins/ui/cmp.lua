@@ -39,12 +39,15 @@ return {
         "buffer",
       },
     },
-
     cmdline = {
-      enabled = false,
-      sources = {
-        "cmdline",
-        "path",
+      enabled = true,
+      completion = {
+        ghost_text = {
+          enabled = true,
+        },
+        menu = {
+          auto_show = true,
+        },
       },
     },
     keymap = {
