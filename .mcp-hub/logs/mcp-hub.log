@@ -1,19 +1,5 @@
-Setting up auto shutting down
-Starting HTTP server on port 37373
-HTTP_SERVER_STARTED
-Initializing marketplace catalog
-Loaded marketplace cache: 117 loaded
-Fetching marketplace catalog
-Successfully updated marketplace catalog
-Marketplace initialized
-Initializing MCP Hub
-Config loaded successfully from /Users/jldev/.config/mcphub/servers.json
-Started watching config file with chokidar at /Users/jldev/.config/mcphub/servers.json
-Disconnecting all servers in parallel
-Starting 1 configured MCP servers in parallel
-Initializing MCP server 'github.com/upstash/context7-mcp'
-Using marketplace name for server 'github.com/upstash/context7-mcp'
 SSE client connected
-github.com/upstash/context7-mcp stderr: Context7 Documentation MCP Server running on stdio
-'github.com/upstash/context7-mcp' MCP server connected
-1/1 servers started successfully
+SSE_CONNECTION_ERROR: aborted
+SSE client disconnected
+SSE_CONNECTION_ERROR: aborted
+SSE client disconnected
