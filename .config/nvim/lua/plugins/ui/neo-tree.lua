@@ -14,6 +14,12 @@ return {
         group_empty_dirs = true,
         auto_expand_single_child = true,
         auto_collapse = true,
+        hide_by_name = {
+          "node_modules",
+        },
+        never_show = {
+          "node_modules",
+        },
       },
       follow_current_file = {
         enabled = true,

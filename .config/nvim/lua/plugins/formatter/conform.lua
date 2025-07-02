@@ -19,5 +19,12 @@ return {
       typescript = { "eslint_d" },
       vue = { "eslint_d" },
     },
+    formatters = {
+      dart_format = {
+        command = "fvm",
+        args = { "dart", "format", "$FILENAME" },
+        stdin = false,
+      },
+    },
   },
 }

@@ -1,9 +1,21 @@
 return {
-  "github/copilot.vim",
+  "zbirenbaum/copilot.lua",
+  cmd = "Copilot",
   event = "InsertEnter",
   config = function()
-    vim.g.copilot_no_tab_map = true
-    vim.g.copilot_assume_mapped = true
-    vim.g.copilot_suggestion_hidden = true -- 👈 disables ghost text
+    require("copilot").setup({
+      panel = { enabled = false },
+      suggestion = {
+        enabled = true,
+        auto_trigger = true, -- Automatically show suggestions
+        debounce = 150, -- Reduce input delay
+        keymap = {
+          accept = "*", -- Accept Copilot suggestion
+          prev = "£", -- Previous suggestion
+          dismiss = "q", -- Dismiss suggestion
+        },
+        copilot_model = "gpt-4o-copilot",
+      },
+    })
   end,
 }

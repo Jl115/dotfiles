@@ -51,7 +51,9 @@ return {
       },
     },
     keymap = {
-      preset = "enter", -- keep original keybindings (no <Tab>/<CR>)
+      preset = "enter", -- disables default Tab/CR
+      ["<Tab>"] = false, -- explicitly disables Tab
+      ["<S-Tab>"] = false, -- if needed
       ["<C-y>"] = { "select_and_accept" },
     },
   },

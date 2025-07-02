@@ -16,7 +16,7 @@ return {
         "lua-language-server",
         "typescript-language-server",
         "vue-language-server",
-        "eslint-lsp",
+        "eslint_d",
         "dockerfile-language-server",
         "docker-compose-language-service",
         "rust-analyzer",

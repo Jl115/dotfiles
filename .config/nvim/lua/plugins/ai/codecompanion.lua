@@ -30,14 +30,20 @@ return {
               chat:apply_tool("mcp.context7")
             end
           end,
-          -- tools are set in config() dynamically
         },
-        inline = {
-          adapter = {
-            name = "copilot",
-            model = "claude-3.7-sonnet",
-          },
-        },
+        -- inline = {
+        --   adapter = {
+        --     name = "copilot",
+        --     model = "claude-3.7-sonnet",
+        --   },
+        --   keymaps = {
+        --     accept_change = {
+        --       modes = { "i" },
+        --       lhs = "<Tab>",
+        --       description = "Accept inline suggestion",
+        --     },
+        --   },
+        -- },
       },
     },
     config = function(_, opts)
@@ -53,10 +59,6 @@ return {
       end
 
       require("codecompanion").setup(opts)
-
-      vim.keymap.set("i", "*", function()
-        return require("codecompanion").accept()
-      end, { desc = "Accept inline hint", expr = true, silent = true })
     end,
     lazy = true,
   },

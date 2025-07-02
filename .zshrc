@@ -1,16 +1,20 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
+# Use arm64 Homebrew if available
+if [[ -d /opt/homebrew/bin ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -146,6 +150,13 @@ alias devAldi="ssh debian@dev.app.alarmdisplay.ch"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
+resetNvim() {
+  echo "Resetting Neovim cache.."
+  rm -rf ~/.local/share/nvim
+  rm -rf ~/.local/state/nvim
+  rm -rf ~/.cache/nvim
+  echo "Neovim configuration reset complete."
+}
 
 lint() {
   # Base directory
@@ -191,7 +202,11 @@ lint() {
   fi
 }
 
-
+function clearNvim() {
+  rm -rf ~/.local/share/nvim;
+  rm -rf ~/.local/state/nvim;
+  rm -rf ~/.cache/nvim;
+}
  
 
 
@@ -216,7 +231,7 @@ alias gu="git reset --soft HEAD~1"
 alias vp-log="ssh -p 58291 root@31.97.36.220"
 alias vp-kube="ssh -L 6443:127.0.0.1:6443 root@31.97.36.220 -p 58291"
 
-function nv() {
+function vi() {
   nvim ${1:+$1}
 }
 
@@ -257,14 +272,10 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 export OLLAMA_API_BASE=http://127.0.0.1:11434
 export PATH="/usr/local/opt/trash/bin:$PATH"
-
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+export TERM=wezterm
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /Users/joelevo/.dart-cli-completion/zsh-config.zsh ]] && . /Users/joelevo/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
 
-export TERM=wezterm
