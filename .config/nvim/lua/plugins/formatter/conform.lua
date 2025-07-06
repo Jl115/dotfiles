@@ -7,6 +7,7 @@ return {
       typescript = { "prettierd" },
       json = { "prettierd" },
       markdown = { "prettierd" },
+      java = { "google-java-format" },
       css = { "prettierd" },
       html = { "prettierd" },
       vue = { "prettierd" },
@@ -17,6 +18,7 @@ return {
     linters_by_ft = {
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
+      java = { "sonarlint-language-server" },
       vue = { "eslint_d" },
     },
     formatters = {

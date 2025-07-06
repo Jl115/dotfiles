@@ -19,6 +19,7 @@ vim.lsp.enable({
   "eslint",
   "lua_ls",
   "marksman",
+  "jdtls",
   "pyright",
   "rust_analyzer",
   "tsserver",
