@@ -17,6 +17,7 @@ return {
     },
     linters_by_ft = {
       javascript = { "eslint_d" },
+      lua = { "stylua" },
       typescript = { "eslint_d" },
       java = { "sonarlint-language-server" },
       vue = { "eslint_d" },

@@ -8,7 +8,6 @@
 local ui = require("config.utils.ui")
 
 local map = vim.keymap.set
-
 local function insert_log()
   vim.cmd('normal! "vy')
   local s = vim.fn.getreg("v")
