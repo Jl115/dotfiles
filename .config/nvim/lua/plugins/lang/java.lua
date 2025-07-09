@@ -41,16 +41,33 @@ return {
                 signatureHelp = { enabled = true },
                 format = { enabled = true },
                 contentProvider = { preferred = "fernflower" },
+                eclipse = {
+                  downloadSources = true,
+                },
                 configuration = {
+                  updateBuildConfiguration = "interactive",
                   runtimes = {
                     {
-                      name = "JavaSE-17",
-                      path = "/Library/Java/JavaVirtualMachines/jdk-17.jdk/Contents/Home", -- adapt to your system
+                      name = "JavaSE-24",
+                      path = "/Library/Java/JavaVirtualMachines/temurin-24.jdk/Contents/Home",
                     },
                   },
                 },
+                maven = {
+                  downloadSources = true,
+                },
+                references = {
+                  includeDecompiledSources = true,
+                },
+                implementationsCodeLens = {
+                  enabled = true,
+                },
+                referencesCodeLens = {
+                  enabled = true,
+                },
               },
             },
+            
           })
 
           -- Attach DAP (debugging) support
