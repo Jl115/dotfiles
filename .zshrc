@@ -230,7 +230,10 @@ alias d="fvm dart"
 alias gu="git reset --soft HEAD~1"
 alias vp-log="ssh -p 58291 root@31.97.36.220"
 alias vp-kube="ssh -L 6443:127.0.0.1:6443 root@31.97.36.220 -p 58291"
-
+alias cd='z'
+alias cdi='zi'
+alias cdl='zoxide query -l -s | less'
+alias cda='zoxide add'
 function vi() {
   nvim ${1:+$1}
 }
@@ -278,4 +281,7 @@ export TERM=wezterm
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /Users/joelevo/.dart-cli-completion/zsh-config.zsh ]] && . /Users/joelevo/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
+eval "$(zoxide init bash)"
 
+
+. "$HOME/.local/bin/env"

@@ -1,0 +1,15 @@
+{
+  "37373": {
+    "cwd": "/Users/jldev/dotfiles/.config/nvim",
+    "config_files": [
+      "/Users/jldev/.config/mcphub/servers.json"
+    ],
+    "pid": 87599,
+    "port": 37373,
+    "startTime": "2025-08-15T11:38:06.658Z",
+    "state": "shutting_down",
+    "activeConnections": 0,
+    "shutdownStartedAt": "2025-08-15T16:51:39.572Z",
+    "shutdownDelay": 300000
+  }
+}

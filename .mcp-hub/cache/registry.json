@@ -1,0 +1,2400 @@
+{
+  "registry": {
+    "version": "1.0.0",
+    "generatedAt": 1755239439,
+    "totalServers": 34,
+    "servers": [
+      {
+        "id": "apify",
+        "name": "Apify Actors",
+        "description": "Enables AI assistants to interact with Apify's web scraping and automation actors, providing access to tools for data extraction, web searching, social media analysis, and more.",
+        "author": "apify",
+        "url": "https://github.com/apify/actors-mcp-server",
+        "category": "web-scraping",
+        "tags": [
+          "web-scraping",
+          "data-extraction",
+          "automation",
+          "actor-management",
+          "apify-platform"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@apify/actors-mcp-server\"],\n  \"env\": {\n    \"APIFY_TOKEN\": \"${APIFY_TOKEN}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Apify API Token",
+                "key": "APIFY_TOKEN",
+                "placeholder": "your_apify_api_token",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "NPX + Actors",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@apify/actors-mcp-server\", \"--actors\", \"${ACTOR_LIST}\"],\n  \"env\": {\n    \"APIFY_TOKEN\": \"${APIFY_TOKEN}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Apify API Token",
+                "key": "APIFY_TOKEN",
+                "placeholder": "your_apify_api_token",
+                "required": true
+              },
+              {
+                "name": "Actor List",
+                "key": "ACTOR_LIST",
+                "placeholder": "lukaskrivka/google-maps-with-contact-details,apify/instagram-scraper",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Remote",
+            "config": "{\n  \"type\": \"sse\",\n  \"url\": \"https://actors-mcp-server.apify.actor/sse\",\n  \"env\": {\n    \"APIFY_TOKEN\": \"${APIFY_TOKEN}\"\n  }\n}",
+            "prerequisites": [],
+            "parameters": [
+              {
+                "name": "Apify API Token",
+                "key": "APIFY_TOKEN",
+                "placeholder": "your_apify_api_token",
+                "required": true
+              }
+            ],
+            "transports": [
+              "sse"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 320,
+        "lastCommit": 1755007893,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "aws_docs",
+        "name": "AWS Documentation MCP Server",
+        "description": "Provides tools to access, search, and recommend AWS documentation, including markdown conversion and China region support.",
+        "author": "awslabs",
+        "url": "https://github.com/awslabs/mcp/tree/main/src/aws-documentation-mcp-server",
+        "license": "Apache-2.0",
+        "category": "documentation",
+        "tags": [
+          "aws",
+          "documentation",
+          "search",
+          "cloud"
+        ],
+        "installations": [
+          {
+            "name": "UVX",
+            "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"awslabs.aws-documentation-mcp-server@latest\"],\n  \"env\": {\n    \"FASTMCP_LOG_LEVEL\": \"${FASTMCP_LOG_LEVEL}\",\n    \"AWS_DOCUMENTATION_PARTITION\": \"${AWS_DOCUMENTATION_PARTITION}\"\n  }\n}",
+            "prerequisites": [
+              "Python 3.10+",
+              "uv"
+            ],
+            "parameters": [
+              {
+                "name": "FastMCP Log Level",
+                "key": "FASTMCP_LOG_LEVEL",
+                "placeholder": "ERROR",
+                "required": false
+              },
+              {
+                "name": "AWS Documentation Partition",
+                "key": "AWS_DOCUMENTATION_PARTITION",
+                "description": "Use 'aws' for global or 'aws-cn' for China region documentation",
+                "placeholder": "aws",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\n    \"run\",\n    \"--rm\",\n    \"--interactive\",\n    \"--env\",\n    \"FASTMCP_LOG_LEVEL=${FASTMCP_LOG_LEVEL}\",\n    \"--env\",\n    \"AWS_DOCUMENTATION_PARTITION=${AWS_DOCUMENTATION_PARTITION}\",\n    \"mcp/aws-documentation:latest\"\n  ],\n  \"env\": {}\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "parameters": [
+              {
+                "name": "FastMCP Log Level",
+                "key": "FASTMCP_LOG_LEVEL",
+                "placeholder": "ERROR",
+                "required": false
+              },
+              {
+                "name": "AWS Documentation Partition",
+                "key": "AWS_DOCUMENTATION_PARTITION",
+                "description": "Use 'aws' for global or 'aws-cn' for China region documentation",
+                "placeholder": "aws",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": false,
+        "stars": 5358,
+        "lastCommit": 1755205013,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "aws_kb_retrieval_server",
+        "name": "AWS Knowledge Base",
+        "description": "Retrieves information from AWS Knowledge Base using Bedrock Agent Runtime, supporting RAG-based queries with customizable result counts.",
+        "author": "modelcontextprotocol",
+        "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/aws-kb-retrieval-server",
+        "category": "knowledge-retrieval",
+        "tags": [
+          "aws",
+          "bedrock",
+          "rag",
+          "knowledge-retrieval",
+          "search"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-aws-kb-retrieval\"],\n  \"env\": {\n    \"AWS_ACCESS_KEY_ID\": \"${AWS_ACCESS_KEY_ID}\",\n    \"AWS_SECRET_ACCESS_KEY\": \"${AWS_SECRET_ACCESS_KEY}\",\n    \"AWS_REGION\": \"${AWS_REGION}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "AWS Access Key ID",
+                "key": "AWS_ACCESS_KEY_ID",
+                "placeholder": "your_aws_access_key_id",
+                "required": true
+              },
+              {
+                "name": "AWS Secret Access Key",
+                "key": "AWS_SECRET_ACCESS_KEY",
+                "placeholder": "your_aws_secret_access_key",
+                "required": true
+              },
+              {
+                "name": "AWS Region",
+                "key": "AWS_REGION",
+                "placeholder": "us-east-1",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"-e\", \"AWS_ACCESS_KEY_ID\", \"-e\", \"AWS_SECRET_ACCESS_KEY\", \"-e\", \"AWS_REGION\", \"mcp/aws-kb-retrieval-server\"],\n  \"env\": {\n    \"AWS_ACCESS_KEY_ID\": \"${AWS_ACCESS_KEY_ID}\",\n    \"AWS_SECRET_ACCESS_KEY\": \"${AWS_SECRET_ACCESS_KEY}\",\n    \"AWS_REGION\": \"${AWS_REGION}\"\n  }\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "parameters": [
+              {
+                "name": "AWS Access Key ID",
+                "key": "AWS_ACCESS_KEY_ID",
+                "placeholder": "your_aws_access_key_id",
+                "required": true
+              },
+              {
+                "name": "AWS Secret Access Key",
+                "key": "AWS_SECRET_ACCESS_KEY",
+                "placeholder": "your_aws_secret_access_key",
+                "required": true
+              },
+              {
+                "name": "AWS Region",
+                "key": "AWS_REGION",
+                "placeholder": "us-east-1",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 133,
+        "lastCommit": 1748455032,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "blender",
+        "name": "Blender MCP",
+        "description": "Integrates Blender via the Model Context Protocol, enabling prompt-assisted 3D modeling, scene creation, and manipulation directly from Blender.",
+        "author": "ahujasid",
+        "url": "https://github.com/ahujasid/blender-mcp",
+        "license": "MIT",
+        "category": "3d-modeling",
+        "tags": [
+          "blender",
+          "3d-modeling",
+          "modeling",
+          "claude",
+          "ai-integration",
+          "automation"
+        ],
+        "installations": [
+          {
+            "name": "UVX",
+            "description": "Run the MCP server using uvx",
+            "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"blender-mcp\"]\n}",
+            "prerequisites": [
+              "Blender 3.0 or newer",
+              "Python 3.10 or newer",
+              "uv"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Windows (CMD)",
+            "description": "Run the MCP server on Windows using cmd and uvx.",
+            "config": "{\n  \"command\": \"cmd\",\n  \"args\": [\"/c\", \"uvx\", \"blender-mcp\"]\n}",
+            "prerequisites": [
+              "Blender 3.0 or newer",
+              "Python 3.10 or newer",
+              "uv",
+              "Windows OS"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": false,
+        "stars": 12896,
+        "lastCommit": 1754184712,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "brave_search",
+        "name": "Brave Search",
+        "description": "Integrates Brave Search API to provide comprehensive web and local search capabilities with smart filtering, pagination, and automatic fallbacks.",
+        "author": "modelcontextprotocol",
+        "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/brave-search",
+        "category": "web-search",
+        "tags": [
+          "search-engine",
+          "local-search",
+          "web-search",
+          "brave-api",
+          "content-discovery"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-brave-search\"],\n  \"env\": {\n    \"BRAVE_API_KEY\": \"${BRAVE_API_KEY}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Brave API Key",
+                "key": "BRAVE_API_KEY",
+                "placeholder": "your_brave_api_key_here",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"-e\", \"BRAVE_API_KEY\", \"mcp/brave-search\"],\n  \"env\": {\n    \"BRAVE_API_KEY\": \"${BRAVE_API_KEY}\"\n  }\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "parameters": [
+              {
+                "name": "Brave API Key",
+                "key": "BRAVE_API_KEY",
+                "placeholder": "your_brave_api_key_here",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 133,
+        "lastCommit": 1748455032,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "browserbase",
+        "name": "Browserbase",
+        "description": "Cloud browser automation server enabling LLMs to interact with web pages, take screenshots, extract data, and execute JavaScript using Browserbase and Puppeteer.",
+        "author": "browserbase",
+        "url": "https://github.com/browserbase/mcp-server-browserbase",
+        "category": "browser-automation",
+        "tags": [
+          "web-automation",
+          "puppeteer",
+          "screenshot-capture",
+          "data-extraction",
+          "javascript-execution"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"@browserbasehq/mcp\"],\n  \"env\": {\n    \"BROWSERBASE_API_KEY\": \"${BROWSERBASE_API_KEY}\",\n    \"BROWSERBASE_PROJECT_ID\": \"${BROWSERBASE_PROJECT_ID}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Browserbase API Key",
+                "key": "BROWSERBASE_API_KEY",
+                "placeholder": "your_browserbase_api_key",
+                "required": true
+              },
+              {
+                "name": "Browserbase Project ID",
+                "key": "BROWSERBASE_PROJECT_ID",
+                "placeholder": "your_browserbase_project_id",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "NPX + Proxies",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"@browserbasehq/mcp\", \"--proxies\"],\n  \"env\": {\n    \"BROWSERBASE_API_KEY\": \"${BROWSERBASE_API_KEY}\",\n    \"BROWSERBASE_PROJECT_ID\": \"${BROWSERBASE_PROJECT_ID}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Browserbase API Key",
+                "key": "BROWSERBASE_API_KEY",
+                "placeholder": "your_browserbase_api_key",
+                "required": true
+              },
+              {
+                "name": "Browserbase Project ID",
+                "key": "BROWSERBASE_PROJECT_ID",
+                "placeholder": "your_browserbase_project_id",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "NPX + Stealth",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"@browserbasehq/mcp\", \"--advancedStealth\"],\n  \"env\": {\n    \"BROWSERBASE_API_KEY\": \"${BROWSERBASE_API_KEY}\",\n    \"BROWSERBASE_PROJECT_ID\": \"${BROWSERBASE_PROJECT_ID}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Browserbase API Key",
+                "key": "BROWSERBASE_API_KEY",
+                "placeholder": "your_browserbase_api_key",
+                "required": true
+              },
+              {
+                "name": "Browserbase Project ID",
+                "key": "BROWSERBASE_PROJECT_ID",
+                "placeholder": "your_browserbase_project_id",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "NPX + Context",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"@browserbasehq/mcp\", \"--contextId\", \"${BROWSERBASE_CONTEXT_ID}\"],\n  \"env\": {\n    \"BROWSERBASE_API_KEY\": \"${BROWSERBASE_API_KEY}\",\n    \"BROWSERBASE_PROJECT_ID\": \"${BROWSERBASE_PROJECT_ID}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Browserbase API Key",
+                "key": "BROWSERBASE_API_KEY",
+                "placeholder": "your_browserbase_api_key",
+                "required": true
+              },
+              {
+                "name": "Browserbase Project ID",
+                "key": "BROWSERBASE_PROJECT_ID",
+                "placeholder": "your_browserbase_project_id",
+                "required": true
+              },
+              {
+                "name": "Browserbase Context ID",
+                "key": "BROWSERBASE_CONTEXT_ID",
+                "placeholder": "your_browserbase_context_id",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 2425,
+        "lastCommit": 1755037585,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "browser_tools",
+        "name": "BrowserTools MCP",
+        "description": "Monitor browser logs, capture audits, and interact with your browser directly from Cursor and other MCP-compatible IDEs using a Chrome extension and local Node.js server.",
+        "author": "AgentDeskAI",
+        "url": "https://github.com/AgentDeskAI/browser-tools-mcp",
+        "license": "MIT",
+        "category": "browser-automation",
+        "tags": [
+          "browser-automation",
+          "chrome-extension"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "description": "Installs and runs the BrowserTools MCP server locally via npx",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"@agentdeskai/browser-tools-mcp@latest\"]\n}",
+            "prerequisites": [
+              "Node.js",
+              "BrowserTools Chrome extension"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": false,
+        "stars": 6211,
+        "lastCommit": 1742992814,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "context7",
+        "name": "Context7",
+        "description": "Up-to-date code documentation for LLMs and AI code editors. Provides version-specific documentation and code examples straight from the source, eliminating outdated or hallucinated API information.",
+        "author": "upstash",
+        "url": "https://github.com/upstash/context7",
+        "category": "development",
+        "tags": [
+          "documentation",
+          "code-examples",
+          "library-docs",
+          "up-to-date",
+          "api-reference",
+          "development"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@upstash/context7-mcp\"],\n  \"env\": {\n    \"DEFAULT_MINIMUM_TOKENS\": \"${DEFAULT_MINIMUM_TOKENS}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Default Minimum Tokens",
+                "key": "DEFAULT_MINIMUM_TOKENS",
+                "placeholder": "6000",
+                "required": false
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Remote",
+            "config": "{\n  \"type\": \"streamable-http\",\n  \"url\": \"https://mcp.context7.com/mcp\"\n}",
+            "prerequisites": [],
+            "transports": [
+              "streamable-http"
+            ]
+          }
+        ],
+        "featured": true,
+        "verified": true,
+        "stars": 25751,
+        "lastCommit": 1755170580,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "esignatures",
+        "name": "eSignatures",
+        "description": "Manages digital contract workflows including creation, sending, and template management for electronic signatures through the eSignatures platform.",
+        "author": "esignaturescom",
+        "url": "https://github.com/esignaturescom/mcp-server-esignatures",
+        "category": "digital-signatures",
+        "tags": [
+          "digital-signatures",
+          "contracts",
+          "document-management",
+          "templates",
+          "collaboration"
+        ],
+        "installations": [
+          {
+            "name": "UVX",
+            "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-esignatures\"],\n  \"env\": {\n    \"ESIGNATURES_SECRET_TOKEN\": \"${ESIGNATURES_SECRET_TOKEN}\"\n  }\n}",
+            "prerequisites": [
+              "Python",
+              "uv"
+            ],
+            "parameters": [
+              {
+                "name": "eSignatures Secret Token",
+                "key": "ESIGNATURES_SECRET_TOKEN",
+                "placeholder": "your_esignatures_api_secret_token",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "UV Dev",
+            "config": "{\n  \"command\": \"uv\",\n  \"args\": [\n    \"--directory\",\n    \"${ESIGNATURES_PATH}\",\n    \"run\",\n    \"mcp-server-esignatures\"\n  ],\n  \"env\": {\n    \"ESIGNATURES_SECRET_TOKEN\": \"${ESIGNATURES_SECRET_TOKEN}\"\n  }\n}",
+            "prerequisites": [
+              "Python",
+              "uv"
+            ],
+            "parameters": [
+              {
+                "name": "eSignatures Secret Token",
+                "key": "ESIGNATURES_SECRET_TOKEN",
+                "placeholder": "your_esignatures_api_secret_token",
+                "required": true
+              },
+              {
+                "name": "eSignatures Path",
+                "key": "ESIGNATURES_PATH",
+                "placeholder": "/path/to/mcp-server-esignatures",
+                "required": false
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": false,
+        "stars": 27,
+        "lastCommit": 1751293961,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "fetch",
+        "name": "Fetch",
+        "description": "Provides web content fetching capabilities for LLMs, retrieving and converting HTML pages to markdown for easier consumption",
+        "author": "modelcontextprotocol",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+        "license": "MIT",
+        "category": "web-scraping",
+        "tags": [
+          "web-fetching",
+          "html-to-markdown",
+          "content-extraction",
+          "web-scraping",
+          "automation"
+        ],
+        "installations": [
+          {
+            "name": "UVX",
+            "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-fetch\"]\n}",
+            "prerequisites": [
+              "python",
+              "uv"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"mcp/fetch\"]\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "UVX + Proxy",
+            "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-fetch\", \"--proxy-url=${PROXY_URL}\"]\n}",
+            "prerequisites": [
+              "python",
+              "uv"
+            ],
+            "parameters": [
+              {
+                "name": "Proxy URL",
+                "key": "PROXY_URL",
+                "description": "URL of the HTTP/HTTPS proxy to use for outgoing requests",
+                "placeholder": "http://localhost:8080",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "UVX + Custom User-Agent",
+            "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-fetch\", \"--user-agent=${USER_AGENT}\"]\n}",
+            "prerequisites": [
+              "python",
+              "uv"
+            ],
+            "parameters": [
+              {
+                "name": "User-Agent",
+                "key": "USER_AGENT",
+                "description": "Custom user-agent string for outgoing requests",
+                "placeholder": "ModelContextProtocol/1.0 (Custom; +https://github.com/modelcontextprotocol/servers)",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": true,
+        "verified": true,
+        "stars": 64363,
+        "lastCommit": 1755080698,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "filesystem",
+        "name": "File System",
+        "description": "Provides comprehensive filesystem operations including reading, writing, moving files, directory management, and advanced file editing with pattern matching and formatting capabilities.",
+        "author": "modelcontextprotocol",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem",
+        "category": "development",
+        "tags": [
+          "filesystem",
+          "file-management",
+          "directory-operations",
+          "file-search",
+          "file-editing"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-filesystem\", \"${ALLOWED_DIRECTORY}\"]\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Allowed Directory",
+                "key": "ALLOWED_DIRECTORY",
+                "placeholder": "/Users/username/Documents",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"--mount\", \"type=bind,src=${ALLOWED_DIRECTORY},dst=/projects\", \"mcp/filesystem\", \"/projects\"]\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "parameters": [
+              {
+                "name": "Allowed Directory",
+                "key": "ALLOWED_DIRECTORY",
+                "placeholder": "/Users/username/Documents",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 64363,
+        "lastCommit": 1755080698,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "firecrawl",
+        "name": "Firecrawl MCP Server",
+        "description": "Official Firecrawl MCP Server providing advanced web scraping, crawling, batch processing, and content extraction for LLM clients like Cursor and Claude.",
+        "author": "mendableai",
+        "url": "https://github.com/mendableai/firecrawl-mcp-server",
+        "license": "MIT",
+        "category": "web-scraping",
+        "tags": [
+          "web-scraping",
+          "crawling",
+          "content-extraction",
+          "batch-processing",
+          "search-api",
+          "javascript-rendering"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "description": "Run the server using npx with your Firecrawl API key.",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"firecrawl-mcp\"],\n  \"env\": {\n    \"FIRECRAWL_API_KEY\": \"${FIRECRAWL_API_KEY}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js >= 18"
+            ],
+            "parameters": [
+              {
+                "name": "Firecrawl API Key",
+                "key": "FIRECRAWL_API_KEY",
+                "description": "Your Firecrawl API key from https://www.firecrawl.dev/app/api-keys",
+                "placeholder": "fc-xxxxxxxxxxxxxxxxxxxxxxxx",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "NPX (Self-hosted)",
+            "description": "Use a custom Firecrawl API endpoint for self-hosted deployments.",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"firecrawl-mcp\"],\n  \"env\": {\n    \"FIRECRAWL_API_URL\": \"${FIRECRAWL_API_URL}\",\n    \"FIRECRAWL_API_KEY\": \"${FIRECRAWL_API_KEY}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js >= 18",
+              "Self-hosted Firecrawl API endpoint"
+            ],
+            "parameters": [
+              {
+                "name": "Firecrawl API URL",
+                "key": "FIRECRAWL_API_URL",
+                "description": "Custom Firecrawl API endpoint for self-hosted instances",
+                "placeholder": "https://firecrawl.your-domain.com",
+                "required": true
+              },
+              {
+                "name": "Firecrawl API Key",
+                "key": "FIRECRAWL_API_KEY",
+                "description": "API key for your self-hosted Firecrawl instance (if required)",
+                "placeholder": "fc-xxxxxxxxxxxxxxxxxxxxxxxx",
+                "required": false
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": true,
+        "verified": true,
+        "stars": 4164,
+        "lastCommit": 1754429333,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "figma",
+        "name": "Framelink Figma MCP",
+        "description": "MCP server that provides Figma layout and styling information to AI coding agents like Cursor, enabling accurate design-to-code workflows.",
+        "author": "GLips",
+        "url": "https://github.com/GLips/Figma-Context-MCP",
+        "license": "MIT",
+        "category": "design",
+        "tags": [
+          "figma",
+          "design-integration",
+          "cursor",
+          "ai-coding",
+          "layout"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "description": "Run using npx with your Figma API key",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"figma-developer-mcp\", \"--figma-api-key=${FIGMA_API_KEY}\", \"--stdio\"],\n  \"env\": {\n    \"FIGMA_API_KEY\": \"${FIGMA_API_KEY}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js >= 18",
+              "Figma account and API key"
+            ],
+            "parameters": [
+              {
+                "name": "Figma API Key",
+                "key": "FIGMA_API_KEY",
+                "description": "Personal access token from your Figma account",
+                "placeholder": "figd_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "NPX (Windows)",
+            "description": "Run using Windows cmd with your Figma API key",
+            "config": "{\n  \"command\": \"cmd\",\n  \"args\": [\"/c\", \"npx\", \"-y\", \"figma-developer-mcp\", \"--figma-api-key=${FIGMA_API_KEY}\", \"--stdio\"],\n  \"env\": {\n    \"FIGMA_API_KEY\": \"${FIGMA_API_KEY}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js >= 18",
+              "Figma account and API key"
+            ],
+            "parameters": [
+              {
+                "name": "Figma API Key",
+                "key": "FIGMA_API_KEY",
+                "description": "Personal access token from your Figma account",
+                "placeholder": "figd_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": false,
+        "stars": 9926,
+        "lastCommit": 1755102447,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "git",
+        "name": "Git Tools",
+        "description": "Provides Git repository interaction and automation tools for reading, searching, and manipulating Git repositories through commands like status, diff, commit, branch management, and more.",
+        "author": "modelcontextprotocol",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/git",
+        "category": "version-control",
+        "tags": [
+          "git",
+          "version-control",
+          "repository-management",
+          "source-control",
+          "development"
+        ],
+        "installations": [
+          {
+            "name": "UVX",
+            "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-git\", \"--repository\", \"${REPOSITORY_PATH}\"]\n}",
+            "prerequisites": [
+              "Python and uv"
+            ],
+            "parameters": [
+              {
+                "name": "Repository Path",
+                "key": "REPOSITORY_PATH",
+                "placeholder": "/path/to/git/repo",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/inspector\", \"uvx\", \"mcp-server-git\", \"--repository\", \"${REPOSITORY_PATH}\"]\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Repository Path",
+                "key": "REPOSITORY_PATH",
+                "placeholder": "/path/to/git/repo",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Python/Pip",
+            "config": "{\n  \"command\": \"python\",\n  \"args\": [\"-m\", \"mcp_server_git\", \"--repository\", \"${REPOSITORY_PATH}\"]\n}",
+            "prerequisites": [
+              "Python"
+            ],
+            "parameters": [
+              {
+                "name": "Repository Path",
+                "key": "REPOSITORY_PATH",
+                "placeholder": "/path/to/git/repo",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"--rm\", \"-i\", \"--mount\", \"type=bind,src=${REPOSITORY_PATH},dst=/workspace\", \"mcp/git\"]\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "parameters": [
+              {
+                "name": "Repository Path",
+                "key": "REPOSITORY_PATH",
+                "placeholder": "/path/to/git/repo",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 64363,
+        "lastCommit": 1755080698,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "github",
+        "name": "GitHub",
+        "description": "GitHub's official MCP Server that provides seamless integration with GitHub APIs, enabling advanced automation and interaction capabilities for developers and tools.",
+        "author": "github",
+        "url": "https://github.com/github/github-mcp-server",
+        "category": "development",
+        "tags": [
+          "github",
+          "git",
+          "repository-management",
+          "issue-tracking",
+          "pull-requests",
+          "code-scanning",
+          "collaboration",
+          "api-integration"
+        ],
+        "installations": [
+          {
+            "name": "Remote",
+            "config": "{\n  \"url\": \"https://api.githubcopilot.com/mcp/\",\n  \"headers\": {\n    \"Authorization\": \"Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}\"\n  }\n}",
+            "prerequisites": [
+              "GitHub account"
+            ],
+            "parameters": [
+              {
+                "name": "GitHub Personal Access Token",
+                "key": "GITHUB_PERSONAL_ACCESS_TOKEN",
+                "placeholder": "ghp_your_github_personal_access_token",
+                "required": true
+              }
+            ],
+            "transports": [
+              "streamable-http"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"-e\", \"GITHUB_PERSONAL_ACCESS_TOKEN\", \"-e\", \"GITHUB_TOOLSETS\", \"-e\", \"GITHUB_READ_ONLY\", \"ghcr.io/github/github-mcp-server\"],\n  \"env\": {\n    \"GITHUB_PERSONAL_ACCESS_TOKEN\": \"${GITHUB_PERSONAL_ACCESS_TOKEN}\",\n    \"GITHUB_TOOLSETS\": \"${GITHUB_TOOLSETS}\",\n    \"GITHUB_READ_ONLY\": \"${GITHUB_READ_ONLY}\"\n  }\n}",
+            "prerequisites": [
+              "GitHub account",
+              "Docker"
+            ],
+            "parameters": [
+              {
+                "name": "GitHub Personal Access Token",
+                "key": "GITHUB_PERSONAL_ACCESS_TOKEN",
+                "placeholder": "ghp_your_github_personal_access_token",
+                "required": true
+              },
+              {
+                "name": "GitHub Toolsets",
+                "key": "GITHUB_TOOLSETS",
+                "placeholder": "repos,issues,pull_requests,code_security",
+                "required": false
+              },
+              {
+                "name": "GitHub Read Only (1 for true, 0 for false)",
+                "key": "GITHUB_READ_ONLY",
+                "placeholder": "0",
+                "required": false
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": true,
+        "verified": true,
+        "stars": 20964,
+        "lastCommit": 1755186082,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "gitlab",
+        "name": "GitLab",
+        "description": "Enables comprehensive GitLab project management including file operations, issue tracking, merge requests, and repository management through the GitLab API.",
+        "author": "modelcontextprotocol",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/gitlab",
+        "category": "source-control",
+        "tags": [
+          "gitlab",
+          "git",
+          "repository-management",
+          "collaboration",
+          "ci-cd"
+        ],
+        "installations": [
+          {
+            "name": "UVX",
+            "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-gitlab\"],\n  \"env\": {\n    \"GITLAB_PERSONAL_ACCESS_TOKEN\": \"${GITLAB_PERSONAL_ACCESS_TOKEN}\",\n    \"GITLAB_API_URL\": \"${GITLAB_API_URL}\"\n  }\n}",
+            "prerequisites": [
+              "Python and uv"
+            ],
+            "parameters": [
+              {
+                "name": "GitLab Personal Access Token",
+                "key": "GITLAB_PERSONAL_ACCESS_TOKEN",
+                "placeholder": "your_gitlab_personal_access_token",
+                "required": true
+              },
+              {
+                "name": "GitLab API URL",
+                "key": "GITLAB_API_URL",
+                "placeholder": "https://gitlab.com/api/v4",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "PIP",
+            "config": "{\n  \"command\": \"python\",\n  \"args\": [\"-m\", \"mcp_server_gitlab\"],\n  \"env\": {\n    \"GITLAB_PERSONAL_ACCESS_TOKEN\": \"${GITLAB_PERSONAL_ACCESS_TOKEN}\",\n    \"GITLAB_API_URL\": \"${GITLAB_API_URL}\"\n  }\n}",
+            "prerequisites": [
+              "Python"
+            ],
+            "parameters": [
+              {
+                "name": "GitLab Personal Access Token",
+                "key": "GITLAB_PERSONAL_ACCESS_TOKEN",
+                "placeholder": "your_gitlab_personal_access_token",
+                "required": true
+              },
+              {
+                "name": "GitLab API URL",
+                "key": "GITLAB_API_URL",
+                "placeholder": "https://gitlab.com/api/v4",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"mcp/gitlab\"],\n  \"env\": {\n    \"GITLAB_PERSONAL_ACCESS_TOKEN\": \"${GITLAB_PERSONAL_ACCESS_TOKEN}\",\n    \"GITLAB_API_URL\": \"${GITLAB_API_URL}\"\n  }\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "parameters": [
+              {
+                "name": "GitLab Personal Access Token",
+                "key": "GITLAB_PERSONAL_ACCESS_TOKEN",
+                "placeholder": "your_gitlab_personal_access_token",
+                "required": true
+              },
+              {
+                "name": "GitLab API URL",
+                "key": "GITLAB_API_URL",
+                "placeholder": "https://gitlab.com/api/v4",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 64363,
+        "lastCommit": 1755080698,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "memory",
+        "name": "Knowledge Graph Memory",
+        "description": "A persistent memory system using a local knowledge graph that enables AI assistants to remember information about users across conversations through entities, relations, and observations.",
+        "author": "modelcontextprotocol",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/memory",
+        "category": "knowledge-graph",
+        "tags": [
+          "knowledge-graph",
+          "persistent-memory",
+          "entity-management",
+          "graph-database",
+          "memory-storage"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-memory\"]\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"-v\", \"claude-memory:/app/dist\", \"--rm\", \"mcp/memory\"]\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Custom NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-memory\"],\n  \"env\": {\n    \"MEMORY_FILE_PATH\": \"${MEMORY_FILE_PATH}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Memory File Path",
+                "key": "MEMORY_FILE_PATH",
+                "placeholder": "/path/to/custom/memory.json",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 64363,
+        "lastCommit": 1755080698,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "magic",
+        "name": "Magic MCP",
+        "description": "AI-powered MCP server by 21st-dev for generating modern UI components from natural language, with seamless LLM integration.",
+        "author": "21st-dev",
+        "url": "https://github.com/21st-dev/magic-mcp",
+        "license": "MIT",
+        "category": "ui-generation",
+        "tags": [
+          "ui-generation",
+          "frontend",
+          "components"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "description": "Install and run Magic MCP via npx",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@21st-dev/magic@latest\"],\n  \"env\": {\n    \"API_KEY\": \"${API_KEY}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js",
+              "API key from https://21st.dev/magic/console"
+            ],
+            "parameters": [
+              {
+                "name": "21st.dev Magic API Key",
+                "key": "API_KEY",
+                "description": "API key generated from the 21st.dev Magic Console",
+                "placeholder": "sk-xxxxxxxxxxxxxxxxxxxx",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 3344,
+        "lastCommit": 1749479819,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "perplexity",
+        "name": "Perplexity MCP",
+        "description": "An MCP server that enables web search functionality using Perplexity AI's API, allowing clients to perform real-time web queries and retrieve up-to-date results.",
+        "author": "jsonallen",
+        "url": "https://github.com/jsonallen/perplexity-mcp",
+        "license": "MIT",
+        "category": "web-search",
+        "tags": [
+          "perplexity",
+          "web-search",
+          "ai",
+          "api",
+          "information-retrieval",
+          "automation"
+        ],
+        "installations": [
+          {
+            "name": "UVX",
+            "description": "Run via uvx",
+            "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"perplexity-mcp\"],\n  \"env\": {\n    \"PERPLEXITY_API_KEY\": \"${PERPLEXITY_API_KEY}\",\n    \"PERPLEXITY_MODEL\": \"${PERPLEXITY_MODEL}\"\n  }\n}",
+            "prerequisites": [
+              "Python 3.11+",
+              "uv",
+              "Perplexity AI API key"
+            ],
+            "parameters": [
+              {
+                "name": "Perplexity API Key",
+                "key": "PERPLEXITY_API_KEY",
+                "description": "API key for authenticating with Perplexity AI",
+                "placeholder": "ppx_sk_your_api_key",
+                "required": true
+              },
+              {
+                "name": "Perplexity Model",
+                "key": "PERPLEXITY_MODEL",
+                "description": "Optional. Model to use for search (e.g., sonar, sonar-pro, sonar-reasoning, sonar-reasoning-pro, sonar-deep-research, r1-1776)",
+                "placeholder": "sonar",
+                "required": false
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": false,
+        "stars": 227,
+        "lastCommit": 1743096750,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "playwright",
+        "name": "Playwright MCP",
+        "description": "Provides browser automation capabilities using Playwright for MCP clients, enabling LLMs to interact with web pages via structured accessibility snapshots or vision mode.",
+        "author": "microsoft",
+        "url": "https://github.com/microsoft/playwright-mcp",
+        "license": "Apache-2.0",
+        "category": "browser-automation",
+        "tags": [
+          "playwright",
+          "browser-automation",
+          "vision"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "description": "Run the Playwright MCP server using npx",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\n    \"@playwright/mcp@latest\"\n  ]\n}",
+            "prerequisites": [
+              "Node.js 18 or newer"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "NPX (Vision Mode)",
+            "description": "Run the Playwright MCP server in vision mode (uses screenshots).",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\n    \"@playwright/mcp@latest\",\n    \"--vision\"\n  ]\n}",
+            "prerequisites": [
+              "Node.js 18 or newer"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "NPX (Custom Port for SSE)",
+            "description": "Run the Playwright MCP server with SSE transport on a custom port.",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\n    \"@playwright/mcp@latest\",\n    \"--port\",\n    \"${PORT}\"\n  ]\n}",
+            "prerequisites": [
+              "Node.js 18 or newer"
+            ],
+            "parameters": [
+              {
+                "name": "Port",
+                "key": "PORT",
+                "placeholder": "8931",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio",
+              "sse"
+            ]
+          },
+          {
+            "name": "Docker",
+            "description": "Run the Playwright MCP server in a Docker container (headless Chromium only).",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\n    \"run\",\n    \"-i\",\n    \"--rm\",\n    \"--init\",\n    \"--pull=always\",\n    \"mcr.microsoft.com/playwright/mcp\"\n  ]\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": true,
+        "verified": true,
+        "stars": 17014,
+        "lastCommit": 1755212475,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "postgres",
+        "name": "PostgreSQL Reader",
+        "description": "Provides read-only access to PostgreSQL databases, allowing LLMs to inspect database schemas and execute read-only queries within protected transactions.",
+        "author": "modelcontextprotocol",
+        "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/postgres",
+        "category": "database-management",
+        "tags": [
+          "postgresql",
+          "database-queries",
+          "schema-inspection",
+          "read-only",
+          "sql"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-postgres\", \"${POSTGRESQL_URL}\"]\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "PostgreSQL URL",
+                "key": "POSTGRESQL_URL",
+                "placeholder": "postgresql://user:password@localhost:5432/mydb",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"mcp/postgres\", \"${POSTGRESQL_URL}\"]\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "parameters": [
+              {
+                "name": "PostgreSQL URL",
+                "key": "POSTGRESQL_URL",
+                "placeholder": "postgresql://user:password@localhost:5432/mydb",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 133,
+        "lastCommit": 1748455032,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "puppeteer",
+        "name": "Puppeteer",
+        "description": "Provides browser automation capabilities using Puppeteer, enabling web page interaction, screenshots, and JavaScript execution in a real browser environment.",
+        "author": "modelcontextprotocol",
+        "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer",
+        "category": "browser-control",
+        "tags": [
+          "web-automation",
+          "screenshots",
+          "browser-control",
+          "javascript",
+          "testing"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-puppeteer\"]\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"--init\", \"-e\", \"DOCKER_CONTAINER=true\", \"mcp/puppeteer\"]\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 133,
+        "lastCommit": 1748455032,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "redis",
+        "name": "Redis",
+        "description": "Provides access to Redis key-value stores, enabling operations like setting, getting, deleting, and listing keys with optional expiration time support.",
+        "author": "modelcontextprotocol",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/redis",
+        "category": "database-management",
+        "tags": [
+          "redis",
+          "key-value-store",
+          "caching",
+          "data-storage",
+          "database-operations"
+        ],
+        "installations": [
+          {
+            "name": "UVX",
+            "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-redis\", \"--url\", \"${REDIS_URL}\"]\n}",
+            "prerequisites": [
+              "Python and uv"
+            ],
+            "parameters": [
+              {
+                "name": "Redis URL",
+                "key": "REDIS_URL",
+                "placeholder": "redis://localhost:6379",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "PIP",
+            "config": "{\n  \"command\": \"python\",\n  \"args\": [\"-m\", \"mcp_server_redis\", \"--url\", \"${REDIS_URL}\"]\n}",
+            "prerequisites": [
+              "Python"
+            ],
+            "parameters": [
+              {
+                "name": "Redis URL",
+                "key": "REDIS_URL",
+                "placeholder": "redis://localhost:6379",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"mcp/redis\", \"--url\", \"${REDIS_URL}\"]\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "parameters": [
+              {
+                "name": "Redis URL",
+                "key": "REDIS_URL",
+                "placeholder": "redis://localhost:6379",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "UVX Auth",
+            "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-redis\", \"--url\", \"${REDIS_URL}\", \"--username\", \"${REDIS_USERNAME}\", \"--password\", \"${REDIS_PASSWORD}\"]\n}",
+            "prerequisites": [
+              "Python",
+              "uv"
+            ],
+            "parameters": [
+              {
+                "name": "Redis URL",
+                "key": "REDIS_URL",
+                "placeholder": "redis://localhost:6379",
+                "required": true
+              },
+              {
+                "name": "Redis Username",
+                "key": "REDIS_USERNAME",
+                "placeholder": "your_redis_username",
+                "required": true
+              },
+              {
+                "name": "Redis Password",
+                "key": "REDIS_PASSWORD",
+                "placeholder": "your_redis_password",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "PIP Auth",
+            "config": "{\n  \"command\": \"python\",\n  \"args\": [\"-m\", \"mcp_server_redis\", \"--url\", \"${REDIS_URL}\", \"--username\", \"${REDIS_USERNAME}\", \"--password\", \"${REDIS_PASSWORD}\"]\n}",
+            "prerequisites": [
+              "Python"
+            ],
+            "parameters": [
+              {
+                "name": "Redis URL",
+                "key": "REDIS_URL",
+                "placeholder": "redis://localhost:6379",
+                "required": true
+              },
+              {
+                "name": "Redis Username",
+                "key": "REDIS_USERNAME",
+                "placeholder": "your_redis_username",
+                "required": true
+              },
+              {
+                "name": "Redis Password",
+                "key": "REDIS_PASSWORD",
+                "placeholder": "your_redis_password",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 64363,
+        "lastCommit": 1755080698,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "riza",
+        "name": "Riza",
+        "description": "Provides a secure code interpreter for executing LLM-generated code, with features for creating, saving, managing, and executing code tools in an isolated environment.",
+        "author": "riza-io",
+        "url": "https://github.com/riza-io/riza-mcp",
+        "category": "code-interpreter",
+        "tags": [
+          "code-execution",
+          "sandbox",
+          "code-interpreter",
+          "tool-management",
+          "security"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"@riza-io/riza-mcp\"],\n  \"env\": {\n    \"RIZA_API_KEY\": \"${RIZA_API_KEY}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Riza API Key",
+                "key": "RIZA_API_KEY",
+                "placeholder": "your_riza_api_key",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": false,
+        "stars": 11,
+        "lastCommit": 1734466929,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "sentry",
+        "name": "Sentry",
+        "description": "Retrieves and analyzes error reports, stacktraces, and debugging information from Sentry.io, enabling AI assistants to inspect and understand application issues.",
+        "author": "modelcontextprotocol",
+        "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/sentry",
+        "category": "development",
+        "tags": [
+          "error-tracking",
+          "debugging",
+          "stacktraces",
+          "issue-monitoring",
+          "application-monitoring"
+        ],
+        "installations": [
+          {
+            "name": "Remote",
+            "config": "{\n    \"url\": \"https://mcp.sentry.dev/mcp\"\n}",
+            "transports": [
+              "streamable-http"
+            ]
+          },
+          {
+            "name": "UVX",
+            "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-sentry\", \"--auth-token\", \"${SENTRY_AUTH_TOKEN}\"]\n}",
+            "prerequisites": [
+              "Python and uv"
+            ],
+            "parameters": [
+              {
+                "name": "Sentry Auth Token",
+                "key": "SENTRY_AUTH_TOKEN",
+                "placeholder": "your_sentry_auth_token_here",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"mcp/sentry\", \"--auth-token\", \"${SENTRY_AUTH_TOKEN}\"]\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "parameters": [
+              {
+                "name": "Sentry Auth Token",
+                "key": "SENTRY_AUTH_TOKEN",
+                "placeholder": "your_sentry_auth_token_here",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Python",
+            "config": "{\n  \"command\": \"python\",\n  \"args\": [\"-m\", \"mcp_server_sentry\", \"--auth-token\", \"${SENTRY_AUTH_TOKEN}\"]\n}",
+            "prerequisites": [
+              "Python"
+            ],
+            "parameters": [
+              {
+                "name": "Sentry Auth Token",
+                "key": "SENTRY_AUTH_TOKEN",
+                "placeholder": "your_sentry_auth_token_here",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 133,
+        "lastCommit": 1748455032,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "sequentialthinking",
+        "name": "Sequential Thinking",
+        "description": "A structured problem-solving tool that enables step-by-step analysis, thought revision, and branching logic for complex reasoning tasks.",
+        "author": "modelcontextprotocol",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking",
+        "category": "development",
+        "tags": [
+          "problem-solving",
+          "reasoning",
+          "analysis",
+          "structured-thinking",
+          "decision-making"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-sequential-thinking\"]\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"--rm\", \"-i\", \"mcp/sequentialthinking\"]\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 64363,
+        "lastCommit": 1755080698,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "slack",
+        "name": "Slack",
+        "description": "Enables AI assistants to interact with Slack workspaces, providing tools for messaging, channel management, reactions, user profiles, and thread management.",
+        "author": "modelcontextprotocol",
+        "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/slack",
+        "category": "Messaging",
+        "tags": [
+          "slack",
+          "messaging",
+          "team-collaboration",
+          "chat",
+          "workspace-management"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-slack\"],\n  \"env\": {\n    \"SLACK_BOT_TOKEN\": \"${SLACK_BOT_TOKEN}\",\n    \"SLACK_TEAM_ID\": \"${SLACK_TEAM_ID}\",\n    \"SLACK_CHANNEL_IDS\": \"${SLACK_CHANNEL_IDS}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Slack Bot Token",
+                "key": "SLACK_BOT_TOKEN",
+                "placeholder": "xoxb-your-bot-token",
+                "required": true
+              },
+              {
+                "name": "Slack Team ID",
+                "key": "SLACK_TEAM_ID",
+                "placeholder": "T01234567",
+                "required": true
+              },
+              {
+                "name": "Slack Channel IDs",
+                "key": "SLACK_CHANNEL_IDS",
+                "placeholder": "C01234567,C76543210",
+                "required": false
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"-e\", \"SLACK_BOT_TOKEN\", \"-e\", \"SLACK_TEAM_ID\", \"-e\", \"SLACK_CHANNEL_IDS\", \"mcp/slack\"],\n  \"env\": {\n    \"SLACK_BOT_TOKEN\": \"${SLACK_BOT_TOKEN}\",\n    \"SLACK_TEAM_ID\": \"${SLACK_TEAM_ID}\",\n    \"SLACK_CHANNEL_IDS\": \"${SLACK_CHANNEL_IDS}\"\n  }\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "parameters": [
+              {
+                "name": "Slack Bot Token",
+                "key": "SLACK_BOT_TOKEN",
+                "placeholder": "xoxb-your-bot-token",
+                "required": true
+              },
+              {
+                "name": "Slack Team ID",
+                "key": "SLACK_TEAM_ID",
+                "placeholder": "T01234567",
+                "required": true
+              },
+              {
+                "name": "Slack Channel IDs",
+                "key": "SLACK_CHANNEL_IDS",
+                "placeholder": "C01234567,C76543210",
+                "required": false
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 133,
+        "lastCommit": 1748455032,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "sqlite",
+        "name": "SQLite",
+        "description": "Provides database interaction and business intelligence capabilities through SQLite, enabling SQL queries, data analysis, and automated business insight generation.",
+        "author": "modelcontextprotocol",
+        "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/sqlite",
+        "category": "database-management",
+        "tags": [
+          "sql",
+          "data-analysis",
+          "business-intelligence",
+          "database-management",
+          "sqlite"
+        ],
+        "installations": [
+          {
+            "name": "UVX",
+            "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-sqlite\", \"--db-path\", \"${DB_PATH}\"]\n}",
+            "prerequisites": [
+              "Python and uv"
+            ],
+            "parameters": [
+              {
+                "name": "Database Path",
+                "key": "DB_PATH",
+                "placeholder": "/path/to/database.db",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"--rm\", \"-i\", \"-v\", \"mcp-sqlite:/mcp\", \"mcp/sqlite\", \"--db-path\", \"${DB_PATH}\"]\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "parameters": [
+              {
+                "name": "Database Path",
+                "key": "DB_PATH",
+                "placeholder": "/path/to/database.db",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 133,
+        "lastCommit": 1748455032,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "stripe",
+        "name": "Stripe",
+        "description": "Enables AI agents to interact with Stripe APIs, supporting operations like customer management, payment processing, product creation, and invoice handling through function calling.",
+        "author": "stripe",
+        "url": "https://github.com/stripe/agent-toolkit",
+        "category": "payments",
+        "tags": [
+          "payments",
+          "billing",
+          "invoicing",
+          "stripe-api",
+          "financial-services"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@stripe/mcp\", \"--tools=all\", \"--api-key=${STRIPE_SECRET_KEY}\"]\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Stripe Secret Key",
+                "key": "STRIPE_SECRET_KEY",
+                "placeholder": "sk_test_your_stripe_secret_key",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "NPX with Environment Variable",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@stripe/mcp\", \"--tools=all\"],\n  \"env\": {\n    \"STRIPE_SECRET_KEY\": \"${STRIPE_SECRET_KEY}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Stripe Secret Key",
+                "key": "STRIPE_SECRET_KEY",
+                "placeholder": "sk_test_your_stripe_secret_key",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 930,
+        "lastCommit": 1755117150,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "supabase",
+        "name": "Supabase MCP Server",
+        "description": "Query MCP enables end-to-end management of Supabase via chat interface: read & write query executions, management API support, automatic migration versioning, access to logs and much more.",
+        "author": "alexander-zuev",
+        "url": "https://github.com/alexander-zuev/supabase-mcp-server",
+        "license": "Apache-2.0",
+        "category": "database",
+        "tags": [
+          "supabase",
+          "database",
+          "sql",
+          "management-api",
+          "postgres",
+          "auth"
+        ],
+        "installations": [
+          {
+            "name": "UVX",
+            "description": "Run via uvx",
+            "config": "{\n  \"command\": \"uv\",\n  \"args\": [\"run\", \"supabase-mcp-server\"],\n  \"env\": {\n    \"QUERY_API_KEY\": \"${QUERY_API_KEY}\",\n    \"SUPABASE_PROJECT_REF\": \"${SUPABASE_PROJECT_REF}\",\n    \"SUPABASE_DB_PASSWORD\": \"${SUPABASE_DB_PASSWORD}\",\n    \"SUPABASE_REGION\": \"${SUPABASE_REGION}\",\n    \"SUPABASE_ACCESS_TOKEN\": \"${SUPABASE_ACCESS_TOKEN}\",\n    \"SUPABASE_SERVICE_ROLE_KEY\": \"${SUPABASE_SERVICE_ROLE_KEY}\"\n  }\n}",
+            "prerequisites": [
+              "Python 3.12+",
+              "uv"
+            ],
+            "parameters": [
+              {
+                "name": "Query API Key",
+                "key": "QUERY_API_KEY",
+                "description": "API key from thequery.dev (required for all operations)",
+                "placeholder": "your-api-key",
+                "required": true
+              },
+              {
+                "name": "Supabase Project Reference",
+                "key": "SUPABASE_PROJECT_REF",
+                "description": "Your Supabase project reference ID (or local host:port)",
+                "placeholder": "your-project-ref",
+                "required": true
+              },
+              {
+                "name": "Supabase Database Password",
+                "key": "SUPABASE_DB_PASSWORD",
+                "description": "Your database password",
+                "placeholder": "your-db-password",
+                "required": true
+              },
+              {
+                "name": "Supabase Region",
+                "key": "SUPABASE_REGION",
+                "description": "AWS region where your Supabase project is hosted (defaults to us-east-1)",
+                "placeholder": "us-east-1",
+                "required": false
+              },
+              {
+                "name": "Supabase Access Token",
+                "key": "SUPABASE_ACCESS_TOKEN",
+                "description": "Personal access token for Supabase Management API (optional)",
+                "placeholder": "your-access-token",
+                "required": false
+              },
+              {
+                "name": "Supabase Service Role Key",
+                "key": "SUPABASE_SERVICE_ROLE_KEY",
+                "description": "Service role key for Auth Admin SDK (optional)",
+                "placeholder": "your-service-role-key",
+                "required": false
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": false,
+        "stars": 783,
+        "lastCommit": 1754380915,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "task_master",
+        "name": "Task Master",
+        "description": "An AI-powered task-management system for developers, integrating with Cursor, Lovable, Windsurf, Roo, and others, supporting multiple AI providers and seamless project automation.",
+        "author": "eyaltoledano",
+        "url": "https://github.com/eyaltoledano/claude-task-master",
+        "license": "MIT WITH Commons-Clause",
+        "category": "project-management",
+        "tags": [
+          "task-management",
+          "automation",
+          "project-management"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "description": "Run Task Master via npx",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"--package=task-master-ai\", \"task-master-ai\"],\n  \"env\": {\n    \"ANTHROPIC_API_KEY\": \"${ANTHROPIC_API_KEY}\",\n    \"PERPLEXITY_API_KEY\": \"${PERPLEXITY_API_KEY}\",\n    \"OPENAI_API_KEY\": \"${OPENAI_API_KEY}\",\n    \"GOOGLE_API_KEY\": \"${GOOGLE_API_KEY}\",\n    \"MISTRAL_API_KEY\": \"${MISTRAL_API_KEY}\",\n    \"OPENROUTER_API_KEY\": \"${OPENROUTER_API_KEY}\",\n    \"XAI_API_KEY\": \"${XAI_API_KEY}\",\n    \"AZURE_OPENAI_API_KEY\": \"${AZURE_OPENAI_API_KEY}\",\n    \"OLLAMA_API_KEY\": \"${OLLAMA_API_KEY}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js >=18.0.0"
+            ],
+            "parameters": [
+              {
+                "name": "Anthropic API Key",
+                "key": "ANTHROPIC_API_KEY",
+                "description": "API key for Anthropic Claude models.",
+                "placeholder": "sk-ant-xxxxxxxxxxxxxxxxxxxx",
+                "required": false
+              },
+              {
+                "name": "Perplexity API Key",
+                "key": "PERPLEXITY_API_KEY",
+                "description": "API key for Perplexity models.",
+                "placeholder": "pk-xxxxxxxxxxxxxxxxxxxx",
+                "required": false
+              },
+              {
+                "name": "OpenAI API Key",
+                "key": "OPENAI_API_KEY",
+                "description": "API key for OpenAI models.",
+                "placeholder": "sk-xxxxxxxxxxxxxxxxxxxx",
+                "required": false
+              },
+              {
+                "name": "Google Gemini API Key",
+                "key": "GOOGLE_API_KEY",
+                "description": "API key for Google Gemini models.",
+                "placeholder": "ya29.xxxxxxxxxxxxxxxxxxxx",
+                "required": false
+              },
+              {
+                "name": "Mistral API Key",
+                "key": "MISTRAL_API_KEY",
+                "description": "API key for Mistral models.",
+                "placeholder": "mistral-xxxxxxxxxxxxxxxxxxxx",
+                "required": false
+              },
+              {
+                "name": "OpenRouter API Key",
+                "key": "OPENROUTER_API_KEY",
+                "description": "API key for OpenRouter models.",
+                "placeholder": "or-xxxxxxxxxxxxxxxxxxxx",
+                "required": false
+              },
+              {
+                "name": "xAI API Key",
+                "key": "XAI_API_KEY",
+                "description": "API key for xAI models.",
+                "placeholder": "xai-xxxxxxxxxxxxxxxxxxxx",
+                "required": false
+              },
+              {
+                "name": "Azure OpenAI API Key",
+                "key": "AZURE_OPENAI_API_KEY",
+                "description": "API key for Azure OpenAI models.",
+                "placeholder": "azure-xxxxxxxxxxxxxxxxxxxx",
+                "required": false
+              },
+              {
+                "name": "Ollama API Key",
+                "key": "OLLAMA_API_KEY",
+                "description": "API key for Ollama models (if required).",
+                "placeholder": "ollama-xxxxxxxxxxxxxxxxxxxx",
+                "required": false
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": true,
+        "verified": true,
+        "stars": 20557,
+        "lastCommit": 1755174252,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "tavily",
+        "name": "Tavily",
+        "description": "Enables real-time web search and data extraction capabilities through Tavily's API, providing AI assistants with filtered search results and intelligent content extraction from web pages.",
+        "author": "tavily-ai",
+        "url": "https://github.com/tavily-ai/tavily-mcp",
+        "category": "web-search",
+        "tags": [
+          "web-search",
+          "data-extraction",
+          "real-time-information",
+          "content-filtering",
+          "news-search"
+        ],
+        "installations": [
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"tavily-mcp\"],\n  \"env\": {\n    \"TAVILY_API_KEY\": \"${TAVILY_API_KEY}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js"
+            ],
+            "parameters": [
+              {
+                "name": "Tavily API Key",
+                "key": "TAVILY_API_KEY",
+                "placeholder": "your_tavily_api_key_here",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"-e\", \"TAVILY_API_KEY\", \"tavily/mcp\"],\n  \"env\": {\n    \"TAVILY_API_KEY\": \"${TAVILY_API_KEY}\"\n  }\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "parameters": [
+              {
+                "name": "Tavily API Key",
+                "key": "TAVILY_API_KEY",
+                "placeholder": "your_tavily_api_key_here",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 674,
+        "lastCommit": 1755093190,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "time",
+        "name": "Time",
+        "description": "Provides time and timezone conversion capabilities using IANA timezone names, with automatic system timezone detection and support for current time queries.",
+        "author": "modelcontextprotocol",
+        "url": "https://github.com/modelcontextprotocol/servers/tree/main/src/time",
+        "category": "datetime",
+        "tags": [
+          "timezone",
+          "time-conversion",
+          "datetime",
+          "scheduling",
+          "automation"
+        ],
+        "installations": [
+          {
+            "name": "UVX",
+            "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-time\"]\n}",
+            "prerequisites": [
+              "Python and uv"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Python",
+            "config": "{\n  \"command\": \"python\",\n  \"args\": [\"-m\", \"mcp_server_time\"]\n}",
+            "prerequisites": [
+              "Python"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"mcp/time\"]\n}",
+            "prerequisites": [
+              "Docker"
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "UVX + Timezone",
+            "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-time\", \"--local-timezone=${LOCAL_TIMEZONE}\"]\n}",
+            "prerequisites": [
+              "Python and uv"
+            ],
+            "parameters": [
+              {
+                "name": "Local Timezone",
+                "key": "LOCAL_TIMEZONE",
+                "placeholder": "America/New_York",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Pip + Timezone",
+            "config": "{\n  \"command\": \"python\",\n  \"args\": [\"-m\", \"mcp_server_time\", \"--local-timezone=${LOCAL_TIMEZONE}\"]\n}",
+            "prerequisites": [
+              "Python"
+            ],
+            "parameters": [
+              {
+                "name": "Local Timezone",
+                "key": "LOCAL_TIMEZONE",
+                "placeholder": "America/New_York",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": true,
+        "stars": 64363,
+        "lastCommit": 1755080698,
+        "updatedAt": 1755239424
+      },
+      {
+        "id": "vapi",
+        "name": "Vapi",
+        "description": "Integrates with Vapi APIs enabling voice agent automation, outbound calls, and assistant management through local or remote MCP connections.",
+        "author": "VapiAI",
+        "url": "https://github.com/VapiAI/mcp-server",
+        "license": "MIT",
+        "category": "voice-agents",
+        "tags": [
+          "voice-agents",
+          "outbound-calls",
+          "automation"
+        ],
+        "installations": [
+          {
+            "name": "Remote",
+            "config": "{\n  \"url\": \"https://mcp.vapi.ai/mcp\",\n  \"headers\": {\n    \"Authorization\": \"Bearer ${VAPI_TOKEN}\"\n  }\n}",
+            "prerequisites": [
+              "Vapi account",
+              "Vapi API key"
+            ],
+            "parameters": [
+              {
+                "name": "Vapi API Token",
+                "key": "VAPI_TOKEN",
+                "description": "API key from your Vapi dashboard (https://dashboard.vapi.ai/org/api-keys)",
+                "placeholder": "vapi_sk_live_xxx",
+                "required": true
+              }
+            ],
+            "transports": [
+              "streamable-http"
+            ]
+          },
+          {
+            "name": "NPX",
+            "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@vapi-ai/mcp-server\"],\n  \"env\": {\n    \"VAPI_TOKEN\": \"${VAPI_TOKEN}\"\n  }\n}",
+            "prerequisites": [
+              "Node.js",
+              "Vapi API key"
+            ],
+            "parameters": [
+              {
+                "name": "Vapi API Token",
+                "key": "VAPI_TOKEN",
+                "description": "API key from your Vapi dashboard (https://dashboard.vapi.ai/org/api-keys)",
+                "placeholder": "vapi_sk_live_xxx",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          },
+          {
+            "name": "Docker",
+            "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"-e\", \"VAPI_TOKEN\", \"ghcr.io/vapiai/mcp-server\"],\n  \"env\": {\n    \"VAPI_TOKEN\": \"${VAPI_TOKEN}\"\n  }\n}",
+            "prerequisites": [
+              "Docker",
+              "Vapi API key"
+            ],
+            "parameters": [
+              {
+                "name": "Vapi API Token",
+                "key": "VAPI_TOKEN",
+                "description": "API key from your Vapi dashboard (https://dashboard.vapi.ai/org/api-keys)",
+                "placeholder": "vapi_sk_live_xxx",
+                "required": true
+              }
+            ],
+            "transports": [
+              "stdio"
+            ]
+          }
+        ],
+        "featured": false,
+        "verified": false,
+        "stars": 25,
+        "lastCommit": 1753165420,
+        "updatedAt": 1755239424
+      }
+    ]
+  },
+  "lastFetchedAt": 1755274348111,
+  "serverDocumentation": {}
+}

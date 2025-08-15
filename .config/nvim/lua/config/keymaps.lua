@@ -6,32 +6,8 @@
 -- Add any additional keymaps here
 -- Save buffer
 local ui = require("config.utils.ui")
-
-local map = vim.keymap.set
-local function insert_log()
-  vim.cmd('normal! "vy')
-  local s = vim.fn.getreg("v")
-  if s == "" then
-    return vim.notify("Nothing selected", vim.log.levels.ERROR)
-  end
-
-  local ft = vim.bo.filetype
-  local templates = {
-    javascript = [[console.log('\x1b[33m%%s\x1b[0m', '%s--------------------', %s);]],
-    typescript = [[console.log('\x1b[33m%%s\x1b[0m', '%s--------------------', %s);]],
-    typescriptreact = [[console.log('\x1b[33m%%s\x1b[0m', '%s--------------------', %s);]],
-    vue = [[console.log('\x1b[33m%%s\x1b[0m', '%s--------------------', %s);]],
-    dart = [[print(''\x1b[33m%%s\x1b[0m'','%s--------------------${%s}');]],
-    python = [[print("\033[33m%s--------------------\033[0m", %s)]],
-    lua = [[print('\27[33m%s--------------------\27[0m', %s)]],
-  }
-
-  local tpl = templates[ft]
-  if not tpl then
-    return vim.notify("Unsupported filetype: " .. ft, vim.log.levels.WARN)
-  end
-  vim.api.nvim_put({ string.format(tpl, s, s) }, "l", true, true)
-end
+local map = require("config.utils.keymapper").safe_set
+local insert_log = require("config.utils.logger").insert_log
 
 map("v", "<leader>pl", insert_log, { desc = "Insert Debug Log", silent = true })
 -- Basic Editing & Navigation
@@ -110,3 +86,21 @@ end, { silent = true })
 map({ "i", "s" }, "<C-J>", function()
   ls.jump(-1)
 end, { silent = true })
+
+-- DivView
+map("n", "<leader>dvo", "<cmd>DivViewOpen<cr>", { desc = "Toggle DivViewOpen" })
+map("n", "<leader>dvc", "<cmd>DivViewClose<cr>", { desc = "Toggle DivViewClose" })
+
+-- LSP Keymaps
+map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "Go to Definition" })
+map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", { desc = "Go to Declaration" })
+map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", { desc = "Go to Implementation" })
+map("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", { desc = "Go to References" })
+map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", { desc = "Hover Documentation" })
+map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { desc = "Code Action" })
+map("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<cr>", { desc = "Format Document" })
+map("n", "<leader>F", "<cmd>lua vim.lsp.buf.range_formatting()<cr>", { desc = "Format Range" })
+map("n", "<leader>df", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Show Diagnostics" })
+map("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<cr>", { desc = "Quickfix Diagnostics" })
+map("n", "<leader>n", "<cmd>lua vim.diagnostic.goto_next()<cr>", { desc = "Next Diagnostic" })
+map("n", "<leader>p", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { desc = "Previous Diagnostic" })

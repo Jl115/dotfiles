@@ -3,6 +3,7 @@
 
 -- load autocmgs for lsps
 -- require("config.lsp-autocmds")
+require("config.utils.healthcmds")
 
 local orig_buf_set_extmark = vim.api.nvim_buf_set_extmark
 vim.api.nvim_buf_set_extmark = function(buf, ns, row, col, opts)

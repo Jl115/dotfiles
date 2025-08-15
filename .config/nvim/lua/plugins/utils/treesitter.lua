@@ -11,6 +11,7 @@ return {
       -- You can keep additional languages from your existing config if needed:
       "tsx",
       "json",
+      "jsonc",
       "java",
       "yaml",
       "html",

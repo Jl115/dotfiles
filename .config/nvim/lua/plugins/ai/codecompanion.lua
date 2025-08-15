@@ -28,22 +28,11 @@ return {
           on_submit = function(chat)
             if vim.fn.line("$") > 100 then
               chat:apply_tool("mcp.context7")
+              chat:apply_tool("mcp.server-memory")
+              chat:apply_tool("mcp.server-sequential-thinking")
             end
           end,
         },
-        -- inline = {
-        --   adapter = {
-        --     name = "copilot",
-        --     model = "claude-3.7-sonnet",
-        --   },
-        --   keymaps = {
-        --     accept_change = {
-        --       modes = { "i" },
-        --       lhs = "<Tab>",
-        --       description = "Accept inline suggestion",
-        --     },
-        --   },
-        -- },
       },
     },
     config = function(_, opts)

@@ -8,6 +8,7 @@ return {
       json = { "prettierd" },
       markdown = { "prettierd" },
       java = { "google-java-format" },
+      dart = { "dart_format" },
       css = { "prettierd" },
       html = { "prettierd" },
       vue = { "prettierd" },
@@ -15,13 +16,7 @@ return {
       cpp = { "clang_format" },
       python = { "ruff", "ruff_organize_imports", "ruff_format" },
     },
-    linters_by_ft = {
-      javascript = { "eslint_d" },
-      lua = { "stylua" },
-      typescript = { "eslint_d" },
-      java = { "sonarlint-language-server" },
-      vue = { "eslint_d" },
-    },
+
     formatters = {
       dart_format = {
         command = "fvm",
