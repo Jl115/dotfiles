@@ -7,9 +7,9 @@
     "pid": 96688,
     "port": 37373,
     "startTime": "2025-08-16T20:44:27.235Z",
-    "state": "active",
-    "activeConnections": 1,
-    "shutdownStartedAt": null,
-    "shutdownDelay": null
+    "state": "shutting_down",
+    "activeConnections": 0,
+    "shutdownStartedAt": "2025-08-16T20:53:37.311Z",
+    "shutdownDelay": 300000
   }
 }
