@@ -284,4 +284,3 @@ export TERM=wezterm
 eval "$(zoxide init bash)"
 
 
-. "$HOME/.local/bin/env"
