@@ -3,7 +3,7 @@ hs = hs
 local super = { "cmd", "ctrl", "alt", "shift" }
 
 hs.hotkey.bind(super, "t", function()
-	hs.application.launchOrFocus("WezTerm")
+	hs.application.launchOrFocus("kitty")
 end)
 
 hs.hotkey.bind(super, "o", function()

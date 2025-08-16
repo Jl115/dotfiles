@@ -1,13 +1,5 @@
 Updated workspace state for port 37373
+Workspace on port 37373 shutdown cancelled, returning to active
+Updated workspace state for port 37373
 SSE client connected
-SSE_CONNECTION_ERROR: aborted
-SSE client disconnected
-Updated workspace state for port 37373
-Workspace cache updated
-SSE_CONNECTION_ERROR: aborted
-SSE client disconnected
-Updated workspace state for port 37373
-Updated workspace state for port 37373
-Workspace on port 37373 entering shutdown state
-Starting timer for auto shutdown (300000ms)
 Workspace cache updated

@@ -1,15 +1,15 @@
 {
   "37373": {
-    "cwd": "/Users/jldev/dotfiles",
+    "cwd": "/Users/jldev/dotfiles/.config",
     "config_files": [
       "/Users/jldev/.config/mcphub/servers.json"
     ],
-    "pid": 13386,
+    "pid": 96688,
     "port": 37373,
-    "startTime": "2025-08-16T14:28:12.044Z",
-    "state": "shutting_down",
-    "activeConnections": 0,
-    "shutdownStartedAt": "2025-08-16T15:47:32.633Z",
-    "shutdownDelay": 300000
+    "startTime": "2025-08-16T20:44:27.235Z",
+    "state": "active",
+    "activeConnections": 1,
+    "shutdownStartedAt": null,
+    "shutdownDelay": null
   }
 }
