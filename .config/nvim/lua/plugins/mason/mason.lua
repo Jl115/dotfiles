@@ -14,7 +14,7 @@ return {
         "clang-format",
         -- LSPs
         "lua-language-server",
-        "vtsls", -- replaces typescript-language-server
+        "typescript-language-server", -- replaces typescript-language-server
         "vue-language-server",
         "eslint_d",
         "dockerfile-language-server",

@@ -4,6 +4,7 @@
 -- load autocmgs for lsps
 -- require("config.lsp-autocmds")
 require("config.utils.healthcmds")
+local autoQuit = require("config.utils.auto-quit").autoQuit
 
 local orig_buf_set_extmark = vim.api.nvim_buf_set_extmark
 vim.api.nvim_buf_set_extmark = function(buf, ns, row, col, opts)
@@ -103,3 +104,9 @@ end
 vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave" }, {
   callback = autosave_buf,
 })
+
+-- vim.api.nvim_create_autocmd("VimLeavePre", {
+--   callback = function()
+--     autoQuit()
+--   end,
+-- })

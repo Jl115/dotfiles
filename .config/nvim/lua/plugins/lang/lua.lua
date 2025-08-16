@@ -1,5 +1,5 @@
 return {
-  "neovim/nvim-lspconfig",
+  "neovim/nvim-lspconfig", -- Specify the plugin to merge with
   opts = {
     servers = {
       lua_ls = {

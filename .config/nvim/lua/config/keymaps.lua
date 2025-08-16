@@ -88,19 +88,7 @@ map({ "i", "s" }, "<C-J>", function()
 end, { silent = true })
 
 -- DivView
-map("n", "<leader>dvo", "<cmd>DivViewOpen<cr>", { desc = "Toggle DivViewOpen" })
-map("n", "<leader>dvc", "<cmd>DivViewClose<cr>", { desc = "Toggle DivViewClose" })
+map("n", "<leader>dvo", "<cmd>DiffviewOpen<cr>", { desc = "Toggle DivViewOpen" })
+map("n", "<leader>dvc", "<cmd>DiffviewClose<cr>", { desc = "Toggle DivViewClose" })
 
 -- LSP Keymaps
-map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", { desc = "Go to Definition" })
-map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>", { desc = "Go to Declaration" })
-map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<cr>", { desc = "Go to Implementation" })
-map("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", { desc = "Go to References" })
-map("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", { desc = "Hover Documentation" })
-map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", { desc = "Code Action" })
-map("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<cr>", { desc = "Format Document" })
-map("n", "<leader>F", "<cmd>lua vim.lsp.buf.range_formatting()<cr>", { desc = "Format Range" })
-map("n", "<leader>df", "<cmd>lua vim.diagnostic.open_float()<cr>", { desc = "Show Diagnostics" })
-map("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<cr>", { desc = "Quickfix Diagnostics" })
-map("n", "<leader>n", "<cmd>lua vim.diagnostic.goto_next()<cr>", { desc = "Next Diagnostic" })
-map("n", "<leader>p", "<cmd>lua vim.diagnostic.goto_prev()<cr>", { desc = "Previous Diagnostic" })
