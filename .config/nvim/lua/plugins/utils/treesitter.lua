@@ -1,9 +1,5 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-    "HiPhish/rainbow-delimiters.nvim",
-  },
   opts = {
     ensure_installed = {
       "lua",
@@ -53,5 +49,10 @@ return {
         },
       },
     },
+  },
+  -- Make sure to add dependencies for textobjects
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    "HiPhish/rainbow-delimiters.nvim",
   },
 }

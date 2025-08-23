@@ -1,4 +1,5 @@
 return {
-  "neovim/nvim-lspconfig", -- Install the LSP config
+  { "neovim/nvim-lspconfig", lazy = false }, -- Install the LSP config
+
   "folke/neodev.nvim",
 }

@@ -4,7 +4,6 @@
 -- load autocmgs for lsps
 -- require("config.lsp-autocmds")
 require("config.utils.healthcmds")
-local autoQuit = require("config.utils.auto-quit").autoQuit
 
 local orig_buf_set_extmark = vim.api.nvim_buf_set_extmark
 vim.api.nvim_buf_set_extmark = function(buf, ns, row, col, opts)
@@ -65,21 +64,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   end,
 })
 
-vim.o.updatetime = 1000 -- Set delay to 1 second (1000ms)
-
-vim.api.nvim_create_autocmd("CursorHold", {
-  pattern = "*",
-  callback = function()
-    if vim.api.nvim_get_current_win() ~= vim.fn.win_getid() then
-      return
-    end
-    local ft = vim.bo.filetype
-    if ft and ft ~= "" then
-      require("pretty_hover").hover()
-    end
-  end,
-})
-
 local last_saved_buf = nil
 
 local function autosave_buf(event)
@@ -104,9 +88,3 @@ end
 vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave" }, {
   callback = autosave_buf,
 })
-
--- vim.api.nvim_create_autocmd("VimLeavePre", {
---   callback = function()
---     autoQuit()
---   end,
--- })

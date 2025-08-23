@@ -2,29 +2,54 @@ return {
 
   {
     "neovim/nvim-lspconfig",
-    config = function()
-      local lspconfig = require("lspconfig")
-
-      lspconfig.ts_ls.setup({
-        filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact" },
-      })
-
-      lspconfig.volar.setup({
-        filetypes = {
-          "vue",
-        },
-        init_options = {
-          vue = { hybridMode = false },
-          typescript = {
-            tsdk = vim.fn.stdpath("data") .. "/mason/packages/typescript-language-server/node_modules/typescript/lib",
+    dependencies = {
+      "jose-elias-alvarez/typescript.nvim",
+      "pmizio/typescript-tools.nvim",
+    },
+    opts = {
+      servers = {
+        tsserver = {},
+        volar = {
+          filetypes = {
+            "vue",
+            "javascript",
+            "typescript",
+            "javascriptreact",
+            "typescriptreact",
+          },
+          init_options = {
+            typescript = {
+              serverPath = "", -- prevent tsserver from running redundantly
+            },
+            vue = {
+              hybridMode = true,
+            },
           },
         },
-        on_attach = function(client)
-          -- This disables diagnostics from Volar
-          client.handlers["textDocument/publishDiagnostics"] = function() end
+      },
+      setup = {
+        tsserver = function(_, opts)
+          opts.capabilities = require("blink.cmp").get_lsp_capabilities(opts.capabilities)
+          require("typescript").setup({ server = opts })
+
+          local util = require("lspconfig.util")
+          opts.root_dir = function(fname)
+            local js_root = util.search_ancestors(fname, function(dir)
+              return vim.fn.filereadable(dir .. "/jsconfig.json") == 1 and dir or nil
+            end)
+            return js_root or util.root_pattern("package.json", "tsconfig.json", ".git")(fname)
+          end
         end,
-      })
-    end,
+
+        -- No setup override needed for volar; LazyVim handles it automatically
+      },
+      on_attach = function(client, buffer)
+        if client.name == "tsserver" then
+          vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports", { buffer = buffer, desc = "Organize Imports" })
+          vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { buffer = buffer, desc = "Rename File" })
+        end
+      end,
+    },
   },
 
   -- DAP
