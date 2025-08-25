@@ -1,5 +1,8 @@
 hs = hs
 
+--* MODULES
+local finder = require("utils.finder")
+
 local super = { "cmd", "ctrl", "alt", "shift" }
 
 hs.hotkey.bind(super, "t", function()
@@ -19,11 +22,15 @@ hs.hotkey.bind(super, "l", function()
 end)
 
 hs.hotkey.bind(super, "p", function()
-	hs.application.launchOrFocus("pgAdmin 4")
+	finder.launchOrFallback("pgAdmin 4", "dbeaver")
 end)
 
 hs.hotkey.bind(super, "s", function()
 	hs.application.launchOrFocus("Slack")
+end)
+
+hs.hotkey.bind(super, "n", function()
+	hs.application.launchOrFocus("Agenda")
 end)
 
 hs.hotkey.bind({ "alt", "shift" }, "R", function()
