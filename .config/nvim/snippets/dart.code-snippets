@@ -270,4 +270,12 @@
 		],
 		"description": "Create a try catch with console error for dart"
 	},
+  "Flutter TODO": {
+		"scope": "dart,flutter",
+		"prefix": "todo",
+		"body": [
+      "//TODO: ($1) $2"
+		],
+		"description": "Create a todo comment"
+	},
 }
