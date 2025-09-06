@@ -15,6 +15,7 @@ return {
       "java",
       "yaml",
       "html",
+      "gomod",
       "css",
       "cpp",
       "scss",

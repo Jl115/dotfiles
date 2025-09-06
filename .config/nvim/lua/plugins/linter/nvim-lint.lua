@@ -8,6 +8,7 @@ return {
       typescript = { "eslint_d" },
       -- java = { "sonarlint-language-server" },
       vue = { "eslint_d" },
+      go = { "golangcilint" },
     },
   },
 }

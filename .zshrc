@@ -275,7 +275,8 @@ add-zsh-hook chpwd load-nvmrc
 load-nvmrc
 export OLLAMA_API_BASE=http://127.0.0.1:11434
 export PATH="/usr/local/opt/trash/bin:$PATH"
-export TERM=wezterm
+export PATH="$PATH:$(go env GOPATH)/bin"
+
 
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall

@@ -22,6 +22,7 @@ return {
       "jdtls",
       "marksman",
       "clangd",
+      "gopls",
       -- Debugging / DAP
       "codelldb",
       "js-debug-adapter",
