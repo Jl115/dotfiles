@@ -30,7 +30,7 @@ hs.hotkey.bind(super, "s", function()
 end)
 
 hs.hotkey.bind(super, "n", function()
-	hs.application.launchOrFocus("Agenda")
+	hs.application.launchOrFocus("NotePlan")
 end)
 
 hs.hotkey.bind({ "alt", "shift" }, "R", function()
