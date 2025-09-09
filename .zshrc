@@ -144,13 +144,14 @@ export PATH="$PATH:$HOME/.pub-cache/bin"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias devAldi="ssh debian@dev.app.alarmdisplay.ch"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-resetNvim() {
+#* FUNCTIONS
+
+function resetNvim() {
   echo "Resetting Neovim cache.."
   rm -rf ~/.local/share/nvim
   rm -rf ~/.local/state/nvim
@@ -158,7 +159,21 @@ resetNvim() {
   echo "Neovim configuration reset complete."
 }
 
-lint() {
+
+function openVault() {
+  # Check if the first argument ($1) is empty
+  if [ -z "$1" ]; then
+    # If no argument is given, open the main Vaults directory
+    nvim ~/Vaults/
+    return
+  fi
+
+  # If an argument is provided, open that specific vault
+  local VAULT_NAME=$1
+  nvim ~/Vaults/"$VAULT_NAME"
+}
+
+function lint() {
   # Base directory
   base_dir="../" 
 
@@ -207,9 +222,16 @@ function clearNvim() {
   rm -rf ~/.local/state/nvim;
   rm -rf ~/.cache/nvim;
 }
- 
 
+function vi() {
+  nvim ${1:+$1}
+}
 
+function migration() { 
+   npx sequelize-cli migration:generate --name "$1"
+}
+
+#* ALIASES
 alias resetDb="npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all"
 alias clear="clear && printf ‘\e[3J’"
 alias mg"migration"
@@ -234,14 +256,10 @@ alias cd='z'
 alias cdi='zi'
 alias cdl='zoxide query -l -s | less'
 alias cda='zoxide add'
-function vi() {
-  nvim ${1:+$1}
-}
+alias devAldi="ssh debian@dev.app.alarmdisplay.ch"
+alias ovo="openVault"
 
 
-function migration() { 
-   npx sequelize-cli migration:generate --name "$1"
-}
 
 ulimit -n 4096
 

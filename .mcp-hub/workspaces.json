@@ -1,14 +1,14 @@
 {
   "37373": {
-    "cwd": "/Users/jldev/Projects/9-ideas/notely",
+    "cwd": "/Users/joelevo/Projects/evosys/spotpilot",
     "config_files": [
-      "/Users/jldev/.config/mcphub/servers.json"
+      "/Users/joelevo/.config/mcphub/servers.json"
     ],
-    "pid": 52376,
+    "pid": 35280,
     "port": 37373,
-    "startTime": "2025-09-06T20:53:13.720Z",
+    "startTime": "2025-09-09T12:52:58.221Z",
     "state": "active",
-    "activeConnections": 1,
+    "activeConnections": 3,
     "shutdownStartedAt": null,
     "shutdownDelay": null
   }

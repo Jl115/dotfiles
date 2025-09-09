@@ -11,7 +11,7 @@
 		"scope": "javascript,vue",
 		"prefix": "todo",
 		"body": [
-			"/* <!-- TODO: $1 --> */"
+			"/* <!-- TODO: ($1) $2 --> */"
 		],
 		"description": "Add TODO comment"
 	},
