@@ -18,6 +18,7 @@ return {
           "node_modules",
         },
         never_show = {
+          ".DS_Store",
           "node_modules",
         },
       },
@@ -49,6 +50,5 @@ return {
         with_expanders = true,
       },
     },
-    -- root = vim.fn.getcwd(),
   },
 }
