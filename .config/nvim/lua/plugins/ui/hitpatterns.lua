@@ -1,6 +1,5 @@
 return {
-  "echasnovski/mini.hipatterns",
-  version = false,
+  "nvim-mini/mini.hipatterns",
   event = "BufReadPost",
   lazy = false,
   opts = function()
