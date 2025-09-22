@@ -1,7 +1,7 @@
 {
   "registry": {
     "version": "1.0.0",
-    "generatedAt": 1757399337,
+    "generatedAt": 1758522588,
     "totalServers": 34,
     "servers": [
       {
@@ -22,7 +22,9 @@
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@apify/actors-mcp-server\"],\n  \"env\": {\n    \"APIFY_TOKEN\": \"${APIFY_TOKEN}\"\n  }\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Apify API Token",
@@ -31,12 +33,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "NPX + Actors",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@apify/actors-mcp-server\", \"--actors\", \"${ACTOR_LIST}\"],\n  \"env\": {\n    \"APIFY_TOKEN\": \"${APIFY_TOKEN}\"\n  }\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Apify API Token",
@@ -51,7 +57,9 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Remote",
@@ -65,14 +73,16 @@
                 "required": true
               }
             ],
-            "transports": ["sse"]
+            "transports": [
+              "sse"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 372,
-        "lastCommit": 1757325927,
-        "updatedAt": 1757399316
+        "stars": 392,
+        "lastCommit": 1758291924,
+        "updatedAt": 1758522574
       },
       {
         "id": "aws_docs",
@@ -82,12 +92,20 @@
         "url": "https://github.com/awslabs/mcp/tree/main/src/aws-documentation-mcp-server",
         "license": "Apache-2.0",
         "category": "documentation",
-        "tags": ["aws", "documentation", "search", "cloud"],
+        "tags": [
+          "aws",
+          "documentation",
+          "search",
+          "cloud"
+        ],
         "installations": [
           {
             "name": "UVX",
             "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"awslabs.aws-documentation-mcp-server@latest\"],\n  \"env\": {\n    \"FASTMCP_LOG_LEVEL\": \"${FASTMCP_LOG_LEVEL}\",\n    \"AWS_DOCUMENTATION_PARTITION\": \"${AWS_DOCUMENTATION_PARTITION}\"\n  }\n}",
-            "prerequisites": ["Python 3.10+", "uv"],
+            "prerequisites": [
+              "Python 3.10+",
+              "uv"
+            ],
             "parameters": [
               {
                 "name": "FastMCP Log Level",
@@ -103,12 +121,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\n    \"run\",\n    \"--rm\",\n    \"--interactive\",\n    \"--env\",\n    \"FASTMCP_LOG_LEVEL=${FASTMCP_LOG_LEVEL}\",\n    \"--env\",\n    \"AWS_DOCUMENTATION_PARTITION=${AWS_DOCUMENTATION_PARTITION}\",\n    \"mcp/aws-documentation:latest\"\n  ],\n  \"env\": {}\n}",
-            "prerequisites": ["Docker"],
+            "prerequisites": [
+              "Docker"
+            ],
             "parameters": [
               {
                 "name": "FastMCP Log Level",
@@ -124,14 +146,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": false,
-        "stars": 6258,
-        "lastCommit": 1757355441,
-        "updatedAt": 1757399316
+        "stars": 6426,
+        "lastCommit": 1758504348,
+        "updatedAt": 1758522574
       },
       {
         "id": "aws_kb_retrieval_server",
@@ -140,12 +164,20 @@
         "author": "modelcontextprotocol",
         "url": "https://github.com/modelcontextprotocol/servers-archived/tree/main/src/aws-kb-retrieval-server",
         "category": "knowledge-retrieval",
-        "tags": ["aws", "bedrock", "rag", "knowledge-retrieval", "search"],
+        "tags": [
+          "aws",
+          "bedrock",
+          "rag",
+          "knowledge-retrieval",
+          "search"
+        ],
         "installations": [
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-aws-kb-retrieval\"],\n  \"env\": {\n    \"AWS_ACCESS_KEY_ID\": \"${AWS_ACCESS_KEY_ID}\",\n    \"AWS_SECRET_ACCESS_KEY\": \"${AWS_SECRET_ACCESS_KEY}\",\n    \"AWS_REGION\": \"${AWS_REGION}\"\n  }\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "AWS Access Key ID",
@@ -166,12 +198,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"-e\", \"AWS_ACCESS_KEY_ID\", \"-e\", \"AWS_SECRET_ACCESS_KEY\", \"-e\", \"AWS_REGION\", \"mcp/aws-kb-retrieval-server\"],\n  \"env\": {\n    \"AWS_ACCESS_KEY_ID\": \"${AWS_ACCESS_KEY_ID}\",\n    \"AWS_SECRET_ACCESS_KEY\": \"${AWS_SECRET_ACCESS_KEY}\",\n    \"AWS_REGION\": \"${AWS_REGION}\"\n  }\n}",
-            "prerequisites": ["Docker"],
+            "prerequisites": [
+              "Docker"
+            ],
             "parameters": [
               {
                 "name": "AWS Access Key ID",
@@ -192,14 +228,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 145,
+        "stars": 151,
         "lastCommit": 1748455032,
-        "updatedAt": 1757399316
+        "updatedAt": 1758522574
       },
       {
         "id": "blender",
@@ -227,7 +265,9 @@
               "Python 3.10 or newer",
               "uv"
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Windows (CMD)",
@@ -239,14 +279,16 @@
               "uv",
               "Windows OS"
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": false,
-        "stars": 13157,
+        "stars": 13554,
         "lastCommit": 1755805397,
-        "updatedAt": 1757399316
+        "updatedAt": 1758522574
       },
       {
         "id": "brave_search",
@@ -266,7 +308,9 @@
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-brave-search\"],\n  \"env\": {\n    \"BRAVE_API_KEY\": \"${BRAVE_API_KEY}\"\n  }\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Brave API Key",
@@ -275,12 +319,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"-e\", \"BRAVE_API_KEY\", \"mcp/brave-search\"],\n  \"env\": {\n    \"BRAVE_API_KEY\": \"${BRAVE_API_KEY}\"\n  }\n}",
-            "prerequisites": ["Docker"],
+            "prerequisites": [
+              "Docker"
+            ],
             "parameters": [
               {
                 "name": "Brave API Key",
@@ -289,14 +337,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 145,
+        "stars": 151,
         "lastCommit": 1748455032,
-        "updatedAt": 1757399316
+        "updatedAt": 1758522574
       },
       {
         "id": "browserbase",
@@ -316,7 +366,9 @@
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"@browserbasehq/mcp\"],\n  \"env\": {\n    \"BROWSERBASE_API_KEY\": \"${BROWSERBASE_API_KEY}\",\n    \"BROWSERBASE_PROJECT_ID\": \"${BROWSERBASE_PROJECT_ID}\"\n  }\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Browserbase API Key",
@@ -331,12 +383,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "NPX + Proxies",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"@browserbasehq/mcp\", \"--proxies\"],\n  \"env\": {\n    \"BROWSERBASE_API_KEY\": \"${BROWSERBASE_API_KEY}\",\n    \"BROWSERBASE_PROJECT_ID\": \"${BROWSERBASE_PROJECT_ID}\"\n  }\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Browserbase API Key",
@@ -351,12 +407,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "NPX + Stealth",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"@browserbasehq/mcp\", \"--advancedStealth\"],\n  \"env\": {\n    \"BROWSERBASE_API_KEY\": \"${BROWSERBASE_API_KEY}\",\n    \"BROWSERBASE_PROJECT_ID\": \"${BROWSERBASE_PROJECT_ID}\"\n  }\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Browserbase API Key",
@@ -371,12 +431,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "NPX + Context",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"@browserbasehq/mcp\", \"--contextId\", \"${BROWSERBASE_CONTEXT_ID}\"],\n  \"env\": {\n    \"BROWSERBASE_API_KEY\": \"${BROWSERBASE_API_KEY}\",\n    \"BROWSERBASE_PROJECT_ID\": \"${BROWSERBASE_PROJECT_ID}\"\n  }\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Browserbase API Key",
@@ -397,14 +461,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 2563,
-        "lastCommit": 1757033768,
-        "updatedAt": 1757399316
+        "stars": 2604,
+        "lastCommit": 1758042782,
+        "updatedAt": 1758522574
       },
       {
         "id": "browser_tools",
@@ -414,21 +480,29 @@
         "url": "https://github.com/AgentDeskAI/browser-tools-mcp",
         "license": "MIT",
         "category": "browser-automation",
-        "tags": ["browser-automation", "chrome-extension"],
+        "tags": [
+          "browser-automation",
+          "chrome-extension"
+        ],
         "installations": [
           {
             "name": "NPX",
             "description": "Installs and runs the BrowserTools MCP server locally via npx",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"@agentdeskai/browser-tools-mcp@latest\"]\n}",
-            "prerequisites": ["Node.js", "BrowserTools Chrome extension"],
-            "transports": ["stdio"]
+            "prerequisites": [
+              "Node.js",
+              "BrowserTools Chrome extension"
+            ],
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": false,
-        "stars": 6464,
+        "stars": 6571,
         "lastCommit": 1742992814,
-        "updatedAt": 1757399316
+        "updatedAt": 1758522574
       },
       {
         "id": "context7",
@@ -449,7 +523,9 @@
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@upstash/context7-mcp\"],\n  \"env\": {\n    \"DEFAULT_MINIMUM_TOKENS\": \"${DEFAULT_MINIMUM_TOKENS}\"\n  }\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Default Minimum Tokens",
@@ -458,20 +534,24 @@
                 "required": false
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Remote",
             "config": "{\n  \"type\": \"streamable-http\",\n  \"url\": \"https://mcp.context7.com/mcp\"\n}",
             "prerequisites": [],
-            "transports": ["streamable-http"]
+            "transports": [
+              "streamable-http"
+            ]
           }
         ],
         "featured": true,
         "verified": true,
-        "stars": 29489,
-        "lastCommit": 1757321604,
-        "updatedAt": 1757399316
+        "stars": 31033,
+        "lastCommit": 1758346487,
+        "updatedAt": 1758522574
       },
       {
         "id": "esignatures",
@@ -491,7 +571,10 @@
           {
             "name": "UVX",
             "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-esignatures\"],\n  \"env\": {\n    \"ESIGNATURES_SECRET_TOKEN\": \"${ESIGNATURES_SECRET_TOKEN}\"\n  }\n}",
-            "prerequisites": ["Python", "uv"],
+            "prerequisites": [
+              "Python",
+              "uv"
+            ],
             "parameters": [
               {
                 "name": "eSignatures Secret Token",
@@ -500,12 +583,17 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "UV Dev",
             "config": "{\n  \"command\": \"uv\",\n  \"args\": [\n    \"--directory\",\n    \"${ESIGNATURES_PATH}\",\n    \"run\",\n    \"mcp-server-esignatures\"\n  ],\n  \"env\": {\n    \"ESIGNATURES_SECRET_TOKEN\": \"${ESIGNATURES_SECRET_TOKEN}\"\n  }\n}",
-            "prerequisites": ["Python", "uv"],
+            "prerequisites": [
+              "Python",
+              "uv"
+            ],
             "parameters": [
               {
                 "name": "eSignatures Secret Token",
@@ -520,14 +608,16 @@
                 "required": false
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": false,
         "stars": 28,
         "lastCommit": 1751293961,
-        "updatedAt": 1757399316
+        "updatedAt": 1758522574
       },
       {
         "id": "fetch",
@@ -548,19 +638,31 @@
           {
             "name": "UVX",
             "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-fetch\"]\n}",
-            "prerequisites": ["python", "uv"],
-            "transports": ["stdio"]
+            "prerequisites": [
+              "python",
+              "uv"
+            ],
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"mcp/fetch\"]\n}",
-            "prerequisites": ["Docker"],
-            "transports": ["stdio"]
+            "prerequisites": [
+              "Docker"
+            ],
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "UVX + Proxy",
             "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-fetch\", \"--proxy-url=${PROXY_URL}\"]\n}",
-            "prerequisites": ["python", "uv"],
+            "prerequisites": [
+              "python",
+              "uv"
+            ],
             "parameters": [
               {
                 "name": "Proxy URL",
@@ -570,12 +672,17 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "UVX + Custom User-Agent",
             "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-fetch\", \"--user-agent=${USER_AGENT}\"]\n}",
-            "prerequisites": ["python", "uv"],
+            "prerequisites": [
+              "python",
+              "uv"
+            ],
             "parameters": [
               {
                 "name": "User-Agent",
@@ -585,14 +692,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": true,
         "verified": true,
-        "stars": 67193,
-        "lastCommit": 1757091079,
-        "updatedAt": 1757399316
+        "stars": 68487,
+        "lastCommit": 1758284015,
+        "updatedAt": 1758522574
       },
       {
         "id": "filesystem",
@@ -612,7 +721,9 @@
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-filesystem\", \"${ALLOWED_DIRECTORY}\"]\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Allowed Directory",
@@ -621,12 +732,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"--mount\", \"type=bind,src=${ALLOWED_DIRECTORY},dst=/projects\", \"mcp/filesystem\", \"/projects\"]\n}",
-            "prerequisites": ["Docker"],
+            "prerequisites": [
+              "Docker"
+            ],
             "parameters": [
               {
                 "name": "Allowed Directory",
@@ -635,14 +750,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 67193,
-        "lastCommit": 1757091079,
-        "updatedAt": 1757399316
+        "stars": 68487,
+        "lastCommit": 1758284015,
+        "updatedAt": 1758522574
       },
       {
         "id": "firecrawl",
@@ -665,7 +782,9 @@
             "name": "NPX",
             "description": "Run the server using npx with your Firecrawl API key.",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"firecrawl-mcp\"],\n  \"env\": {\n    \"FIRECRAWL_API_KEY\": \"${FIRECRAWL_API_KEY}\"\n  }\n}",
-            "prerequisites": ["Node.js >= 18"],
+            "prerequisites": [
+              "Node.js >= 18"
+            ],
             "parameters": [
               {
                 "name": "Firecrawl API Key",
@@ -675,7 +794,9 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "NPX (Self-hosted)",
@@ -701,14 +822,16 @@
                 "required": false
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": true,
         "verified": true,
-        "stars": 4451,
-        "lastCommit": 1757083962,
-        "updatedAt": 1757399316
+        "stars": 4573,
+        "lastCommit": 1758126784,
+        "updatedAt": 1758522574
       },
       {
         "id": "figma",
@@ -730,7 +853,10 @@
             "name": "NPX",
             "description": "Run using npx with your Figma API key",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"figma-developer-mcp\", \"--figma-api-key=${FIGMA_API_KEY}\", \"--stdio\"],\n  \"env\": {\n    \"FIGMA_API_KEY\": \"${FIGMA_API_KEY}\"\n  }\n}",
-            "prerequisites": ["Node.js >= 18", "Figma account and API key"],
+            "prerequisites": [
+              "Node.js >= 18",
+              "Figma account and API key"
+            ],
             "parameters": [
               {
                 "name": "Figma API Key",
@@ -740,13 +866,18 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "NPX (Windows)",
             "description": "Run using Windows cmd with your Figma API key",
             "config": "{\n  \"command\": \"cmd\",\n  \"args\": [\"/c\", \"npx\", \"-y\", \"figma-developer-mcp\", \"--figma-api-key=${FIGMA_API_KEY}\", \"--stdio\"],\n  \"env\": {\n    \"FIGMA_API_KEY\": \"${FIGMA_API_KEY}\"\n  }\n}",
-            "prerequisites": ["Node.js >= 18", "Figma account and API key"],
+            "prerequisites": [
+              "Node.js >= 18",
+              "Figma account and API key"
+            ],
             "parameters": [
               {
                 "name": "Figma API Key",
@@ -756,14 +887,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": false,
-        "stars": 10570,
-        "lastCommit": 1757344614,
-        "updatedAt": 1757399316
+        "stars": 10824,
+        "lastCommit": 1758163834,
+        "updatedAt": 1758522574
       },
       {
         "id": "git",
@@ -783,7 +916,9 @@
           {
             "name": "UVX",
             "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-git\", \"--repository\", \"${REPOSITORY_PATH}\"]\n}",
-            "prerequisites": ["Python and uv"],
+            "prerequisites": [
+              "Python and uv"
+            ],
             "parameters": [
               {
                 "name": "Repository Path",
@@ -792,12 +927,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/inspector\", \"uvx\", \"mcp-server-git\", \"--repository\", \"${REPOSITORY_PATH}\"]\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Repository Path",
@@ -806,12 +945,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Python/Pip",
             "config": "{\n  \"command\": \"python\",\n  \"args\": [\"-m\", \"mcp_server_git\", \"--repository\", \"${REPOSITORY_PATH}\"]\n}",
-            "prerequisites": ["Python"],
+            "prerequisites": [
+              "Python"
+            ],
             "parameters": [
               {
                 "name": "Repository Path",
@@ -820,12 +963,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"--rm\", \"-i\", \"--mount\", \"type=bind,src=${REPOSITORY_PATH},dst=/workspace\", \"mcp/git\"]\n}",
-            "prerequisites": ["Docker"],
+            "prerequisites": [
+              "Docker"
+            ],
             "parameters": [
               {
                 "name": "Repository Path",
@@ -834,14 +981,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 67193,
-        "lastCommit": 1757091079,
-        "updatedAt": 1757399316
+        "stars": 68487,
+        "lastCommit": 1758284015,
+        "updatedAt": 1758522574
       },
       {
         "id": "github",
@@ -864,7 +1013,9 @@
           {
             "name": "Remote",
             "config": "{\n  \"url\": \"https://api.githubcopilot.com/mcp/\",\n  \"headers\": {\n    \"Authorization\": \"Bearer ${GITHUB_PERSONAL_ACCESS_TOKEN}\"\n  }\n}",
-            "prerequisites": ["GitHub account"],
+            "prerequisites": [
+              "GitHub account"
+            ],
             "parameters": [
               {
                 "name": "GitHub Personal Access Token",
@@ -873,12 +1024,17 @@
                 "required": true
               }
             ],
-            "transports": ["streamable-http"]
+            "transports": [
+              "streamable-http"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"-e\", \"GITHUB_PERSONAL_ACCESS_TOKEN\", \"-e\", \"GITHUB_TOOLSETS\", \"-e\", \"GITHUB_READ_ONLY\", \"ghcr.io/github/github-mcp-server\"],\n  \"env\": {\n    \"GITHUB_PERSONAL_ACCESS_TOKEN\": \"${GITHUB_PERSONAL_ACCESS_TOKEN}\",\n    \"GITHUB_TOOLSETS\": \"${GITHUB_TOOLSETS}\",\n    \"GITHUB_READ_ONLY\": \"${GITHUB_READ_ONLY}\"\n  }\n}",
-            "prerequisites": ["GitHub account", "Docker"],
+            "prerequisites": [
+              "GitHub account",
+              "Docker"
+            ],
             "parameters": [
               {
                 "name": "GitHub Personal Access Token",
@@ -899,14 +1055,16 @@
                 "required": false
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": true,
         "verified": true,
-        "stars": 22394,
-        "lastCommit": 1757350484,
-        "updatedAt": 1757399316
+        "stars": 22829,
+        "lastCommit": 1758297045,
+        "updatedAt": 1758522574
       },
       {
         "id": "gitlab",
@@ -926,7 +1084,9 @@
           {
             "name": "UVX",
             "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-gitlab\"],\n  \"env\": {\n    \"GITLAB_PERSONAL_ACCESS_TOKEN\": \"${GITLAB_PERSONAL_ACCESS_TOKEN}\",\n    \"GITLAB_API_URL\": \"${GITLAB_API_URL}\"\n  }\n}",
-            "prerequisites": ["Python and uv"],
+            "prerequisites": [
+              "Python and uv"
+            ],
             "parameters": [
               {
                 "name": "GitLab Personal Access Token",
@@ -941,12 +1101,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "PIP",
             "config": "{\n  \"command\": \"python\",\n  \"args\": [\"-m\", \"mcp_server_gitlab\"],\n  \"env\": {\n    \"GITLAB_PERSONAL_ACCESS_TOKEN\": \"${GITLAB_PERSONAL_ACCESS_TOKEN}\",\n    \"GITLAB_API_URL\": \"${GITLAB_API_URL}\"\n  }\n}",
-            "prerequisites": ["Python"],
+            "prerequisites": [
+              "Python"
+            ],
             "parameters": [
               {
                 "name": "GitLab Personal Access Token",
@@ -961,12 +1125,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"mcp/gitlab\"],\n  \"env\": {\n    \"GITLAB_PERSONAL_ACCESS_TOKEN\": \"${GITLAB_PERSONAL_ACCESS_TOKEN}\",\n    \"GITLAB_API_URL\": \"${GITLAB_API_URL}\"\n  }\n}",
-            "prerequisites": ["Docker"],
+            "prerequisites": [
+              "Docker"
+            ],
             "parameters": [
               {
                 "name": "GitLab Personal Access Token",
@@ -981,14 +1149,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 67193,
-        "lastCommit": 1757091079,
-        "updatedAt": 1757399316
+        "stars": 68487,
+        "lastCommit": 1758284015,
+        "updatedAt": 1758522574
       },
       {
         "id": "memory",
@@ -1008,19 +1178,29 @@
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-memory\"]\n}",
-            "prerequisites": ["Node.js"],
-            "transports": ["stdio"]
+            "prerequisites": [
+              "Node.js"
+            ],
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"-v\", \"claude-memory:/app/dist\", \"--rm\", \"mcp/memory\"]\n}",
-            "prerequisites": ["Docker"],
-            "transports": ["stdio"]
+            "prerequisites": [
+              "Docker"
+            ],
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Custom NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-memory\"],\n  \"env\": {\n    \"MEMORY_FILE_PATH\": \"${MEMORY_FILE_PATH}\"\n  }\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Memory File Path",
@@ -1029,14 +1209,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 67193,
-        "lastCommit": 1757091079,
-        "updatedAt": 1757399316
+        "stars": 68487,
+        "lastCommit": 1758284015,
+        "updatedAt": 1758522574
       },
       {
         "id": "magic",
@@ -1046,7 +1228,11 @@
         "url": "https://github.com/21st-dev/magic-mcp",
         "license": "MIT",
         "category": "ui-generation",
-        "tags": ["ui-generation", "frontend", "components"],
+        "tags": [
+          "ui-generation",
+          "frontend",
+          "components"
+        ],
         "installations": [
           {
             "name": "NPX",
@@ -1065,14 +1251,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 3578,
+        "stars": 3678,
         "lastCommit": 1749479819,
-        "updatedAt": 1757399316
+        "updatedAt": 1758522574
       },
       {
         "id": "perplexity",
@@ -1095,7 +1283,11 @@
             "name": "UVX",
             "description": "Run via uvx",
             "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"perplexity-mcp\"],\n  \"env\": {\n    \"PERPLEXITY_API_KEY\": \"${PERPLEXITY_API_KEY}\",\n    \"PERPLEXITY_MODEL\": \"${PERPLEXITY_MODEL}\"\n  }\n}",
-            "prerequisites": ["Python 3.11+", "uv", "Perplexity AI API key"],
+            "prerequisites": [
+              "Python 3.11+",
+              "uv",
+              "Perplexity AI API key"
+            ],
             "parameters": [
               {
                 "name": "Perplexity API Key",
@@ -1112,14 +1304,16 @@
                 "required": false
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": false,
-        "stars": 244,
+        "stars": 250,
         "lastCommit": 1743096750,
-        "updatedAt": 1757399316
+        "updatedAt": 1758522574
       },
       {
         "id": "playwright",
@@ -1129,27 +1323,41 @@
         "url": "https://github.com/microsoft/playwright-mcp",
         "license": "Apache-2.0",
         "category": "browser-automation",
-        "tags": ["playwright", "browser-automation", "vision"],
+        "tags": [
+          "playwright",
+          "browser-automation",
+          "vision"
+        ],
         "installations": [
           {
             "name": "NPX",
             "description": "Run the Playwright MCP server using npx",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\n    \"@playwright/mcp@latest\"\n  ]\n}",
-            "prerequisites": ["Node.js 18 or newer"],
-            "transports": ["stdio"]
+            "prerequisites": [
+              "Node.js 18 or newer"
+            ],
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "NPX (Vision Mode)",
             "description": "Run the Playwright MCP server in vision mode (uses screenshots).",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\n    \"@playwright/mcp@latest\",\n    \"--vision\"\n  ]\n}",
-            "prerequisites": ["Node.js 18 or newer"],
-            "transports": ["stdio"]
+            "prerequisites": [
+              "Node.js 18 or newer"
+            ],
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "NPX (Custom Port for SSE)",
             "description": "Run the Playwright MCP server with SSE transport on a custom port.",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\n    \"@playwright/mcp@latest\",\n    \"--port\",\n    \"${PORT}\"\n  ]\n}",
-            "prerequisites": ["Node.js 18 or newer"],
+            "prerequisites": [
+              "Node.js 18 or newer"
+            ],
             "parameters": [
               {
                 "name": "Port",
@@ -1158,21 +1366,28 @@
                 "required": true
               }
             ],
-            "transports": ["stdio", "sse"]
+            "transports": [
+              "stdio",
+              "sse"
+            ]
           },
           {
             "name": "Docker",
             "description": "Run the Playwright MCP server in a Docker container (headless Chromium only).",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\n    \"run\",\n    \"-i\",\n    \"--rm\",\n    \"--init\",\n    \"--pull=always\",\n    \"mcr.microsoft.com/playwright/mcp\"\n  ]\n}",
-            "prerequisites": ["Docker"],
-            "transports": ["stdio"]
+            "prerequisites": [
+              "Docker"
+            ],
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": true,
         "verified": true,
-        "stars": 19304,
-        "lastCommit": 1757371577,
-        "updatedAt": 1757399316
+        "stars": 20089,
+        "lastCommit": 1758335459,
+        "updatedAt": 1758522574
       },
       {
         "id": "postgres",
@@ -1192,7 +1407,9 @@
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-postgres\", \"${POSTGRESQL_URL}\"]\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "PostgreSQL URL",
@@ -1201,12 +1418,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"mcp/postgres\", \"${POSTGRESQL_URL}\"]\n}",
-            "prerequisites": ["Docker"],
+            "prerequisites": [
+              "Docker"
+            ],
             "parameters": [
               {
                 "name": "PostgreSQL URL",
@@ -1215,14 +1436,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 145,
+        "stars": 151,
         "lastCommit": 1748455032,
-        "updatedAt": 1757399316
+        "updatedAt": 1758522574
       },
       {
         "id": "puppeteer",
@@ -1242,21 +1465,29 @@
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-puppeteer\"]\n}",
-            "prerequisites": ["Node.js"],
-            "transports": ["stdio"]
+            "prerequisites": [
+              "Node.js"
+            ],
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"--init\", \"-e\", \"DOCKER_CONTAINER=true\", \"mcp/puppeteer\"]\n}",
-            "prerequisites": ["Docker"],
-            "transports": ["stdio"]
+            "prerequisites": [
+              "Docker"
+            ],
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 145,
+        "stars": 151,
         "lastCommit": 1748455032,
-        "updatedAt": 1757399316
+        "updatedAt": 1758522574
       },
       {
         "id": "redis",
@@ -1276,7 +1507,9 @@
           {
             "name": "UVX",
             "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-redis\", \"--url\", \"${REDIS_URL}\"]\n}",
-            "prerequisites": ["Python and uv"],
+            "prerequisites": [
+              "Python and uv"
+            ],
             "parameters": [
               {
                 "name": "Redis URL",
@@ -1285,12 +1518,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "PIP",
             "config": "{\n  \"command\": \"python\",\n  \"args\": [\"-m\", \"mcp_server_redis\", \"--url\", \"${REDIS_URL}\"]\n}",
-            "prerequisites": ["Python"],
+            "prerequisites": [
+              "Python"
+            ],
             "parameters": [
               {
                 "name": "Redis URL",
@@ -1299,12 +1536,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"mcp/redis\", \"--url\", \"${REDIS_URL}\"]\n}",
-            "prerequisites": ["Docker"],
+            "prerequisites": [
+              "Docker"
+            ],
             "parameters": [
               {
                 "name": "Redis URL",
@@ -1313,12 +1554,17 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "UVX Auth",
             "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-redis\", \"--url\", \"${REDIS_URL}\", \"--username\", \"${REDIS_USERNAME}\", \"--password\", \"${REDIS_PASSWORD}\"]\n}",
-            "prerequisites": ["Python", "uv"],
+            "prerequisites": [
+              "Python",
+              "uv"
+            ],
             "parameters": [
               {
                 "name": "Redis URL",
@@ -1339,12 +1585,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "PIP Auth",
             "config": "{\n  \"command\": \"python\",\n  \"args\": [\"-m\", \"mcp_server_redis\", \"--url\", \"${REDIS_URL}\", \"--username\", \"${REDIS_USERNAME}\", \"--password\", \"${REDIS_PASSWORD}\"]\n}",
-            "prerequisites": ["Python"],
+            "prerequisites": [
+              "Python"
+            ],
             "parameters": [
               {
                 "name": "Redis URL",
@@ -1365,14 +1615,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 67193,
-        "lastCommit": 1757091079,
-        "updatedAt": 1757399316
+        "stars": 68487,
+        "lastCommit": 1758284015,
+        "updatedAt": 1758522574
       },
       {
         "id": "riza",
@@ -1392,7 +1644,9 @@
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"@riza-io/riza-mcp\"],\n  \"env\": {\n    \"RIZA_API_KEY\": \"${RIZA_API_KEY}\"\n  }\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Riza API Key",
@@ -1401,14 +1655,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": false,
         "stars": 11,
         "lastCommit": 1734466929,
-        "updatedAt": 1757399316
+        "updatedAt": 1758522574
       },
       {
         "id": "sentry",
@@ -1428,12 +1684,16 @@
           {
             "name": "Remote",
             "config": "{\n    \"url\": \"https://mcp.sentry.dev/mcp\"\n}",
-            "transports": ["streamable-http"]
+            "transports": [
+              "streamable-http"
+            ]
           },
           {
             "name": "UVX",
             "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-sentry\", \"--auth-token\", \"${SENTRY_AUTH_TOKEN}\"]\n}",
-            "prerequisites": ["Python and uv"],
+            "prerequisites": [
+              "Python and uv"
+            ],
             "parameters": [
               {
                 "name": "Sentry Auth Token",
@@ -1442,12 +1702,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"mcp/sentry\", \"--auth-token\", \"${SENTRY_AUTH_TOKEN}\"]\n}",
-            "prerequisites": ["Docker"],
+            "prerequisites": [
+              "Docker"
+            ],
             "parameters": [
               {
                 "name": "Sentry Auth Token",
@@ -1456,12 +1720,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Python",
             "config": "{\n  \"command\": \"python\",\n  \"args\": [\"-m\", \"mcp_server_sentry\", \"--auth-token\", \"${SENTRY_AUTH_TOKEN}\"]\n}",
-            "prerequisites": ["Python"],
+            "prerequisites": [
+              "Python"
+            ],
             "parameters": [
               {
                 "name": "Sentry Auth Token",
@@ -1470,14 +1738,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 145,
+        "stars": 151,
         "lastCommit": 1748455032,
-        "updatedAt": 1757399316
+        "updatedAt": 1758522574
       },
       {
         "id": "sequentialthinking",
@@ -1497,21 +1767,29 @@
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-sequential-thinking\"]\n}",
-            "prerequisites": ["Node.js"],
-            "transports": ["stdio"]
+            "prerequisites": [
+              "Node.js"
+            ],
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"--rm\", \"-i\", \"mcp/sequentialthinking\"]\n}",
-            "prerequisites": ["Docker"],
-            "transports": ["stdio"]
+            "prerequisites": [
+              "Docker"
+            ],
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 67193,
-        "lastCommit": 1757091079,
-        "updatedAt": 1757399316
+        "stars": 68487,
+        "lastCommit": 1758284015,
+        "updatedAt": 1758522574
       },
       {
         "id": "slack",
@@ -1531,7 +1809,9 @@
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@modelcontextprotocol/server-slack\"],\n  \"env\": {\n    \"SLACK_BOT_TOKEN\": \"${SLACK_BOT_TOKEN}\",\n    \"SLACK_TEAM_ID\": \"${SLACK_TEAM_ID}\",\n    \"SLACK_CHANNEL_IDS\": \"${SLACK_CHANNEL_IDS}\"\n  }\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Slack Bot Token",
@@ -1552,12 +1832,16 @@
                 "required": false
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"-e\", \"SLACK_BOT_TOKEN\", \"-e\", \"SLACK_TEAM_ID\", \"-e\", \"SLACK_CHANNEL_IDS\", \"mcp/slack\"],\n  \"env\": {\n    \"SLACK_BOT_TOKEN\": \"${SLACK_BOT_TOKEN}\",\n    \"SLACK_TEAM_ID\": \"${SLACK_TEAM_ID}\",\n    \"SLACK_CHANNEL_IDS\": \"${SLACK_CHANNEL_IDS}\"\n  }\n}",
-            "prerequisites": ["Docker"],
+            "prerequisites": [
+              "Docker"
+            ],
             "parameters": [
               {
                 "name": "Slack Bot Token",
@@ -1578,14 +1862,16 @@
                 "required": false
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 145,
+        "stars": 151,
         "lastCommit": 1748455032,
-        "updatedAt": 1757399316
+        "updatedAt": 1758522574
       },
       {
         "id": "sqlite",
@@ -1605,7 +1891,9 @@
           {
             "name": "UVX",
             "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-sqlite\", \"--db-path\", \"${DB_PATH}\"]\n}",
-            "prerequisites": ["Python and uv"],
+            "prerequisites": [
+              "Python and uv"
+            ],
             "parameters": [
               {
                 "name": "Database Path",
@@ -1614,12 +1902,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"--rm\", \"-i\", \"-v\", \"mcp-sqlite:/mcp\", \"mcp/sqlite\", \"--db-path\", \"${DB_PATH}\"]\n}",
-            "prerequisites": ["Docker"],
+            "prerequisites": [
+              "Docker"
+            ],
             "parameters": [
               {
                 "name": "Database Path",
@@ -1628,14 +1920,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 145,
+        "stars": 151,
         "lastCommit": 1748455032,
-        "updatedAt": 1757399316
+        "updatedAt": 1758522574
       },
       {
         "id": "stripe",
@@ -1655,7 +1949,9 @@
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@stripe/mcp\", \"--tools=all\", \"--api-key=${STRIPE_SECRET_KEY}\"]\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Stripe Secret Key",
@@ -1664,12 +1960,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "NPX with Environment Variable",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@stripe/mcp\", \"--tools=all\"],\n  \"env\": {\n    \"STRIPE_SECRET_KEY\": \"${STRIPE_SECRET_KEY}\"\n  }\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Stripe Secret Key",
@@ -1678,14 +1978,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 948,
-        "lastCommit": 1755117150,
-        "updatedAt": 1757399316
+        "stars": 958,
+        "lastCommit": 1758049244,
+        "updatedAt": 1758522574
       },
       {
         "id": "supabase",
@@ -1708,7 +2010,10 @@
             "name": "UVX",
             "description": "Run via uvx",
             "config": "{\n  \"command\": \"uv\",\n  \"args\": [\"run\", \"supabase-mcp-server\"],\n  \"env\": {\n    \"QUERY_API_KEY\": \"${QUERY_API_KEY}\",\n    \"SUPABASE_PROJECT_REF\": \"${SUPABASE_PROJECT_REF}\",\n    \"SUPABASE_DB_PASSWORD\": \"${SUPABASE_DB_PASSWORD}\",\n    \"SUPABASE_REGION\": \"${SUPABASE_REGION}\",\n    \"SUPABASE_ACCESS_TOKEN\": \"${SUPABASE_ACCESS_TOKEN}\",\n    \"SUPABASE_SERVICE_ROLE_KEY\": \"${SUPABASE_SERVICE_ROLE_KEY}\"\n  }\n}",
-            "prerequisites": ["Python 3.12+", "uv"],
+            "prerequisites": [
+              "Python 3.12+",
+              "uv"
+            ],
             "parameters": [
               {
                 "name": "Query API Key",
@@ -1753,14 +2058,16 @@
                 "required": false
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": false,
-        "stars": 786,
+        "stars": 797,
         "lastCommit": 1754380915,
-        "updatedAt": 1757399316
+        "updatedAt": 1758522574
       },
       {
         "id": "task_master",
@@ -1770,13 +2077,19 @@
         "url": "https://github.com/eyaltoledano/claude-task-master",
         "license": "MIT WITH Commons-Clause",
         "category": "project-management",
-        "tags": ["task-management", "automation", "project-management"],
+        "tags": [
+          "task-management",
+          "automation",
+          "project-management"
+        ],
         "installations": [
           {
             "name": "NPX",
             "description": "Run Task Master via npx",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"--package=task-master-ai\", \"task-master-ai\"],\n  \"env\": {\n    \"ANTHROPIC_API_KEY\": \"${ANTHROPIC_API_KEY}\",\n    \"PERPLEXITY_API_KEY\": \"${PERPLEXITY_API_KEY}\",\n    \"OPENAI_API_KEY\": \"${OPENAI_API_KEY}\",\n    \"GOOGLE_API_KEY\": \"${GOOGLE_API_KEY}\",\n    \"MISTRAL_API_KEY\": \"${MISTRAL_API_KEY}\",\n    \"OPENROUTER_API_KEY\": \"${OPENROUTER_API_KEY}\",\n    \"XAI_API_KEY\": \"${XAI_API_KEY}\",\n    \"AZURE_OPENAI_API_KEY\": \"${AZURE_OPENAI_API_KEY}\",\n    \"OLLAMA_API_KEY\": \"${OLLAMA_API_KEY}\"\n  }\n}",
-            "prerequisites": ["Node.js >=18.0.0"],
+            "prerequisites": [
+              "Node.js >=18.0.0"
+            ],
             "parameters": [
               {
                 "name": "Anthropic API Key",
@@ -1842,14 +2155,16 @@
                 "required": false
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": true,
         "verified": true,
-        "stars": 21772,
-        "lastCommit": 1757381568,
-        "updatedAt": 1757399316
+        "stars": 22180,
+        "lastCommit": 1758323729,
+        "updatedAt": 1758522574
       },
       {
         "id": "tavily",
@@ -1869,7 +2184,9 @@
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"tavily-mcp\"],\n  \"env\": {\n    \"TAVILY_API_KEY\": \"${TAVILY_API_KEY}\"\n  }\n}",
-            "prerequisites": ["Node.js"],
+            "prerequisites": [
+              "Node.js"
+            ],
             "parameters": [
               {
                 "name": "Tavily API Key",
@@ -1878,12 +2195,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"-e\", \"TAVILY_API_KEY\", \"tavily/mcp\"],\n  \"env\": {\n    \"TAVILY_API_KEY\": \"${TAVILY_API_KEY}\"\n  }\n}",
-            "prerequisites": ["Docker"],
+            "prerequisites": [
+              "Docker"
+            ],
             "parameters": [
               {
                 "name": "Tavily API Key",
@@ -1892,14 +2213,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 735,
-        "lastCommit": 1755093190,
-        "updatedAt": 1757399316
+        "stars": 765,
+        "lastCommit": 1758220016,
+        "updatedAt": 1758522574
       },
       {
         "id": "time",
@@ -1919,25 +2242,39 @@
           {
             "name": "UVX",
             "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-time\"]\n}",
-            "prerequisites": ["Python and uv"],
-            "transports": ["stdio"]
+            "prerequisites": [
+              "Python and uv"
+            ],
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Python",
             "config": "{\n  \"command\": \"python\",\n  \"args\": [\"-m\", \"mcp_server_time\"]\n}",
-            "prerequisites": ["Python"],
-            "transports": ["stdio"]
+            "prerequisites": [
+              "Python"
+            ],
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"mcp/time\"]\n}",
-            "prerequisites": ["Docker"],
-            "transports": ["stdio"]
+            "prerequisites": [
+              "Docker"
+            ],
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "UVX + Timezone",
             "config": "{\n  \"command\": \"uvx\",\n  \"args\": [\"mcp-server-time\", \"--local-timezone=${LOCAL_TIMEZONE}\"]\n}",
-            "prerequisites": ["Python and uv"],
+            "prerequisites": [
+              "Python and uv"
+            ],
             "parameters": [
               {
                 "name": "Local Timezone",
@@ -1946,12 +2283,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Pip + Timezone",
             "config": "{\n  \"command\": \"python\",\n  \"args\": [\"-m\", \"mcp_server_time\", \"--local-timezone=${LOCAL_TIMEZONE}\"]\n}",
-            "prerequisites": ["Python"],
+            "prerequisites": [
+              "Python"
+            ],
             "parameters": [
               {
                 "name": "Local Timezone",
@@ -1960,14 +2301,16 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": true,
-        "stars": 67193,
-        "lastCommit": 1757091079,
-        "updatedAt": 1757399316
+        "stars": 68487,
+        "lastCommit": 1758284015,
+        "updatedAt": 1758522574
       },
       {
         "id": "vapi",
@@ -1977,12 +2320,19 @@
         "url": "https://github.com/VapiAI/mcp-server",
         "license": "MIT",
         "category": "voice-agents",
-        "tags": ["voice-agents", "outbound-calls", "automation"],
+        "tags": [
+          "voice-agents",
+          "outbound-calls",
+          "automation"
+        ],
         "installations": [
           {
             "name": "Remote",
             "config": "{\n  \"url\": \"https://mcp.vapi.ai/mcp\",\n  \"headers\": {\n    \"Authorization\": \"Bearer ${VAPI_TOKEN}\"\n  }\n}",
-            "prerequisites": ["Vapi account", "Vapi API key"],
+            "prerequisites": [
+              "Vapi account",
+              "Vapi API key"
+            ],
             "parameters": [
               {
                 "name": "Vapi API Token",
@@ -1992,12 +2342,17 @@
                 "required": true
               }
             ],
-            "transports": ["streamable-http"]
+            "transports": [
+              "streamable-http"
+            ]
           },
           {
             "name": "NPX",
             "config": "{\n  \"command\": \"npx\",\n  \"args\": [\"-y\", \"@vapi-ai/mcp-server\"],\n  \"env\": {\n    \"VAPI_TOKEN\": \"${VAPI_TOKEN}\"\n  }\n}",
-            "prerequisites": ["Node.js", "Vapi API key"],
+            "prerequisites": [
+              "Node.js",
+              "Vapi API key"
+            ],
             "parameters": [
               {
                 "name": "Vapi API Token",
@@ -2007,12 +2362,17 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           },
           {
             "name": "Docker",
             "config": "{\n  \"command\": \"docker\",\n  \"args\": [\"run\", \"-i\", \"--rm\", \"-e\", \"VAPI_TOKEN\", \"ghcr.io/vapiai/mcp-server\"],\n  \"env\": {\n    \"VAPI_TOKEN\": \"${VAPI_TOKEN}\"\n  }\n}",
-            "prerequisites": ["Docker", "Vapi API key"],
+            "prerequisites": [
+              "Docker",
+              "Vapi API key"
+            ],
             "parameters": [
               {
                 "name": "Vapi API Token",
@@ -2022,17 +2382,19 @@
                 "required": true
               }
             ],
-            "transports": ["stdio"]
+            "transports": [
+              "stdio"
+            ]
           }
         ],
         "featured": false,
         "verified": false,
-        "stars": 26,
+        "stars": 27,
         "lastCommit": 1753165420,
-        "updatedAt": 1757399316
+        "updatedAt": 1758522574
       }
     ]
   },
-  "lastFetchedAt": 1757426325593,
+  "lastFetchedAt": 1758533519233,
   "serverDocumentation": {}
 }

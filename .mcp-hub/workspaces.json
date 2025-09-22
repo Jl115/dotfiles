@@ -1,1 +1,15 @@
-{}
+{
+  "37373": {
+    "cwd": "/Users/joelevo/dotfiles",
+    "config_files": [
+      "/Users/joelevo/.config/mcphub/servers.json"
+    ],
+    "pid": 16343,
+    "port": 37373,
+    "startTime": "2025-09-22T09:31:59.102Z",
+    "state": "active",
+    "activeConnections": 3,
+    "shutdownStartedAt": null,
+    "shutdownDelay": null
+  }
+}
