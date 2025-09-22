@@ -1,13 +1,1 @@
-{
-  "37373": {
-    "cwd": "/Users/jldev/Projects/9-ideas/notely",
-    "config_files": ["/Users/jldev/.config/mcphub/servers.json"],
-    "pid": 4169,
-    "port": 37373,
-    "startTime": "2025-09-07T16:05:51.112Z",
-    "state": "active",
-    "activeConnections": 3,
-    "shutdownStartedAt": null,
-    "shutdownDelay": null
-  }
-}
+{}

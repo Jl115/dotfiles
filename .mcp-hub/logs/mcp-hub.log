@@ -1,17 +1,31 @@
-Setting up auto shutting down
-Starting HTTP server on port 37373
-HTTP_SERVER_STARTED
-Initializing workspace cache
-WorkspaceCacheManager initialized
-Failed to register workspace: Expected double-quoted property name in JSON at position 150
-Expected double-quoted property name in JSON at position 150
+Updated workspace state for port 37373
+SSE client connected
+Workspace cache updated
+SSE_CONNECTION_ERROR: aborted
+SSE client disconnected
+Updated workspace state for port 37373
+Workspace cache updated
+Workspace cache updated
+No active SSE connections, initiating shutdown
 Received SIGTERM signal - initiating graceful shutdown
 Starting graceful shutdown process
+MCP server endpoint closed
 Stopping HTTP server and closing all connections
-MCP Hub is already stopped and cannot be stopped again
+Stopping MCP Hub and cleaning up resources
+Starting MCP Hub cleanup
+Stopping config file watcher
+Stopped watching config file at /Users/joelevo/.config/mcphub/servers.json
+Disconnecting all servers in parallel
+'github.com/upstash/context7-mcp' transport closed
+'memory' transport closed
+'sequentialthinking' transport closed
 Shutting down SSE manager (0 connections)
 SSE manager shutdown complete
+Stopped watching workspace cache file
+3 servers disconnected
+MCP Hub cleanup completed
+MCP Hub has been successfully stopped and cleaned up
 HTTP server has been successfully stopped
-Failed to deregister workspace: Expected double-quoted property name in JSON at position 150
+Deregistered workspace on port 37373
 WorkspaceCacheManager shutdown complete
 Graceful shutdown completed successfully
