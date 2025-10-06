@@ -8,4 +8,5 @@ return {
       dashboard = { enabled = false },
     },
   },
+  { "hrsh7th/nvim-cmp.nvim", enabled = false },
 }

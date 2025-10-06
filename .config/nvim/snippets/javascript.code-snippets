@@ -275,5 +275,28 @@
 			"if (res?.headersSent) return;"
 		],
 		"description": "Create a return statement for already sent headers"
+	},
+  "composable": {
+		"scope": "javascript,vue",
+		"prefix": "composable",
+		"body": [
+			"//* IMPORTS",
+			"",
+			"//* GLOBAL_STATE",
+			"",
+			"export function $TM_FILENAME_BASE() {",
+			"//* VARIABLES",
+			"",
+			"//* LOAD INITIAL",
+			"",
+			"//* METHODS",
+			"",
+			"//* LIFECYCLE HOOKS",
+			"",
+			"//* EXPORTS",
+			"return {};",
+			"}"
+		],
+		"description": "Create a Vue composable"
 	}
 }

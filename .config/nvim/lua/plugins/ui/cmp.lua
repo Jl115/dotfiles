@@ -3,7 +3,8 @@ return {
   event = "InsertEnter",
   enabled = true,
   lazy = false,
-  dependencies = { "nvim-lua/plenary.nvim" },
+  dependencies = { "nvim-lua/plenary.nvim", "hrsh7th/nvim-cmp", "L3MON4D3/LuaSnip", "rafamadriz/friendly-snippets" },
+
   opts = {
     snippets = {
       expand = function(snippet, _)

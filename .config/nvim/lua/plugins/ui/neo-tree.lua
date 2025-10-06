@@ -4,7 +4,6 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons", -- Not strictly required, but recommended
   },
-
   opts = {
     filesystem = {
       filtered_items = {
@@ -41,10 +40,13 @@ return {
       position = "left", -- instead of "right"
       close_on_open = true,
       width = 60,
+      -- ADD THIS MAPPINGS TABLE TO SWAP THE KEYS
+      mappings = {
+        ["/"] = "filter_on_submit", -- Give '/' the old 'f' command
+        ["f"] = "fuzzy_finder", -- Give 'f' the old '/' command
+      },
     },
-
     popup_border_style = "rounded",
-
     default_component_configs = {
       indent = {
         with_expanders = true,
