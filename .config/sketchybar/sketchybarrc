@@ -35,13 +35,13 @@ FONT="SF Pro"
 OUTER_PADDINGS=5
 INNER_PADDINGS=5
 X_BAR_PADDING=12
-BAR_HEIGHT=30
+BAR_HEIGHT=34
 
 # --- Bar & Default Properties ---
 
 bar=(
 	height=$BAR_HEIGHT
-	y_offset=0
+	y_offset=4
 	margin=5
 	shadow=on
 	shadow.color=$SHADOW_COLOR
