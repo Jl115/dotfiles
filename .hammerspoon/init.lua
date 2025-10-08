@@ -1,7 +1,7 @@
 hs = hs
 
 --* OPTIONS
-hs.window.animationDuration = 0.05
+local options = require("config.options")
 
 --* MODULES
 local finder = require("utils.finder")
@@ -10,9 +10,9 @@ local resizer = require("utils.resizer")
 -- =============================================================================
 -- CONFIGURATION
 -- =============================================================================
-local super = { "cmd", "ctrl", "alt", "shift" }
-local mod = { "ctrl", "alt" }
-local custom_height = 0.970
+local super = options.super
+local mod = options.mod
+local custom_height = options.custom_height
 
 -- =============================================================================
 -- CYCLING WINDOW SIZER SETUP
@@ -40,6 +40,10 @@ local cycleSizes = {
 		{ x = 0.5, y = 0, w = 0.5, h = 1 }, -- Last Half (Right Half)
 		{ x = 1 / 3, y = 0, w = 2 / 3, h = 1 }, -- Last Two Thirds
 		{ x = 0.25, y = 0, w = 0.75, h = 1 }, -- Last Three Fourths
+	},
+	-- Cycle for 'Full Screen' enter
+	full = {
+		{ x = 0, y = 0, w = 1, h = 1 }, -- Full Screen
 	},
 }
 
@@ -143,6 +147,9 @@ end)
 hs.hotkey.bind(mod, ";", function()
 	resizer.setWindowFrame({ x = 0.5, y = 0, w = 0.5, h = 1 }, custom_height)
 end)
+hs.hotkey.bind(mod, "return", function()
+	resizer.setWindowFrame({ x = 0, y = 0, w = 1, h = 1 }, custom_height)
+end) -- Press repeatedly to toggle full screen
 
 --* INIT
 hs.alert.show("Config loaded")

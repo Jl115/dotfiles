@@ -10,7 +10,7 @@ return {
         },
 
         -- Vue Language Server
-        volar = {
+        vue_ls = {
           filetypes = {
             "vue",
           },

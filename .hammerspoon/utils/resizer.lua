@@ -1,8 +1,5 @@
 local M = {}
 
---- Moves a focused window to a grid position and adjusts its height.
--- @param unit A frame table like {x=0, y=0, w=0.5, h=1} representing a grid position.
--- @param height_percentage A number between 0 and 1 (e.g., 0.9 for 90%).
 function M.setWindowFrame(unit, height_percentage)
 	local win = hs.window.focusedWindow()
 	if not win then
@@ -11,8 +8,15 @@ function M.setWindowFrame(unit, height_percentage)
 
 	local screen = win:screen()
 	local screen_frame = screen:frame()
-	local final_h = screen_frame.h * height_percentage
+	local screen_name = screen:name()
 
+	if screen_name == "Built-in Retina Display" then
+		height_percentage = 0.997
+	else
+		height_percentage = height_percentage
+	end
+
+	local final_h = screen_frame.h * height_percentage
 	local final_y = screen_frame.y + screen_frame.h - final_h
 
 	local new_frame = {

@@ -8,7 +8,7 @@
     "port": 37373,
     "startTime": "2025-10-06T09:46:22.235Z",
     "state": "active",
-    "activeConnections": 1,
+    "activeConnections": 3,
     "shutdownStartedAt": null,
     "shutdownDelay": null
   }
