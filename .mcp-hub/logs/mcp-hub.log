@@ -1,10 +1,5 @@
 Updated workspace state for port 37373
-SSE client connected
-Fetching marketplace registry from https://ravitemer.github.io/mcp-registry/registry.json
-Workspace cache updated
-Workspace cache updated
-SSE_CONNECTION_ERROR: aborted
-SSE client disconnected
+Workspace on port 37373 shutdown cancelled, returning to active
 Updated workspace state for port 37373
-Workspace cache updated
+SSE client connected
 Workspace cache updated

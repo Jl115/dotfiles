@@ -5,6 +5,7 @@ return {
   config = function()
     require("copilot").setup({
       panel = { enabled = false },
+      copilot_node_command = vim.fn.expand("$HOME") .. "/.nvm/versions/node/v22.16.0/bin/node",
       suggestion = {
         enabled = true,
         auto_trigger = true, -- Automatically show suggestions

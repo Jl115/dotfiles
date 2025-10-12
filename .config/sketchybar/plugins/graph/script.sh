@@ -1,52 +1,49 @@
 #!/bin/bash
-export RELPATH=$(dirname $0)/../..
-source $RELPATH/set_colors.sh
+# Dependencies:
+# - jq: for parsing JSON (brew install jq)
+# - macmon: for system power metrics (https://github.com/momeni/macmon)
 
-### Fetch system related data
+# Source your color variables
+source "$HOME/.config/sketchybar/colors.sh"
 
-systempower="$(macmon pipe -s 1 -i 1 | jq -r .sys_power)"
-probe="$(/bin/ps -Aceo pid,pcpu,comm -r | awk 'NR==2')"
+### Fetch system data
+# Get total CPU usage (user + system) from top
+TOTAL_CPU_USAGE=$(top -l 1 | grep -E "^CPU" | tail -1 | awk '{print $3 + $5}' | sed 's/%//')
 
-topprog_percent=$(echo "$probe" | awk '{print $2}')
-topprog=$(echo "$probe" | awk '{print $3}')
-topprog_pid=$(echo "$probe" | awk '{print $1}')
+# Get top process info (CPU %, PID, Name)
+TOP_PROCESS_PROBE="$(ps -Aceo pcpu,pid,comm -r | sed -n '2p')"
+TOP_PROCESS_PERCENT=$(echo "$TOP_PROCESS_PROBE" | awk '{print $1}')
+TOP_PROCESS_PID=$(echo "$TOP_PROCESS_PROBE" | awk '{print $2}')
+TOP_PROCESS_NAME=$(echo "$TOP_PROCESS_PROBE" | awk '{print $3}')
 
-### Modify top consumming program name color to red if depassing more than 100% cpu
-
-if [[ $(printf "%.0f" $topprog_percent) -gt 100 ]]; then
-  LABEL_COLOR=$CRITICAL
-else
-  LABEL_COLOR=$SUBTLE
+# Get system power usage from macmon (if available)
+SYSTEM_POWER_W=""
+if command -v macmon &>/dev/null; then
+	SYSTEM_POWER_W=" | $(macmon pipe -s 1 -i 1 | jq -r .sys_power)W"
 fi
 
-graphlabel="${topprog_percent}% - $topprog [$topprog_pid]"
+### Format the labels
+PERCENT_LABEL="$(printf "%.0f" "$TOTAL_CPU_USAGE")%"
+TOP_PROCESS_LABEL="$TOP_PROCESS_NAME ($TOP_PROCESS_PID)$SYSTEM_POWER_W"
 
-#graphpercent=$(awk -v min=0 -v max=100 'BEGIN{srand(); print int(min+rand()*(max-min+1))}')
-graphpercent=$(top -l1 -n1 | grep "^CPU usage:" | awk '{gsub(/%/,"",$3); print $3}')
-graphpoint=$(bc <<<"scale=1; $graphpercent / 100 ")
+### Calculate graph point (a value between 0.0 and 1.0)
+GRAPH_POINT=$(echo "scale=2; $TOTAL_CPU_USAGE / 100" | bc)
 
-### Update graph color depending on cpu load
-
-case $(printf "%.0f" $graphpercent) in
-[8-9][0-9] | 7[5-9] | 100)
-  COLOR=$CRITICAL
-  ;;
-[5-6][0-9] | 7[0-4])
-  COLOR=$WARN
-  ;;
-[3-5][0-9] | 2[5-9])
-  COLOR=$NOTICE
-  ;;
-[5-9] | 1[0-9] | 2[0-4])
-  COLOR=$SELECT
-  ;;
-*) COLOR=$SUBTLE ;;
+### Determine graph color based on total CPU load
+case $(printf "%.0f" "$TOTAL_CPU_USAGE") in
+[8-9][0-9] | 100)
+	GRAPH_COLOR=$(get_color RED 100)
+	;;
+[6-7][0-9])
+	GRAPH_COLOR=$(get_color PEACH 100)
+	;;
+[3-5][0-9])
+	GRAPH_COLOR=$(get_color ROSEWATER 100)
+	;;
+*) GRAPH_COLOR=$(get_color BLUE 100) ;;
 esac
 
-sketchybar --push $NAME $graphpoint \
-  --set $NAME.percent label="$(printf "%.0f" $graphpercent)%" \
-  --set $NAME graph.color=$COLOR
-
-graphlabel="${topprog_percent}% - $topprog [$topprog_pid] | $(printf '%.2f' $systempower)W"
-
-sketchybar --set $NAME.label label="$graphlabel" label.color="$LABEL_COLOR"
+### Update all the sketchybar items in one go
+sketchybar --set cpu.percent label="$PERCENT_LABEL" \
+	--set cpu.graph graph.color="$GRAPH_COLOR" \
+	--push cpu.graph "$GRAPH_POINT"
