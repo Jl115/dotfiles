@@ -1,4 +1,3 @@
-
 return {
   {
     "neovim/nvim-lspconfig",
@@ -67,7 +66,6 @@ return {
                 },
               },
             },
-            
           })
 
           -- Attach DAP (debugging) support

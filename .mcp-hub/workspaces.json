@@ -1,9 +1,7 @@
 {
   "37373": {
     "cwd": "/Users/jldev/dotfiles/.config",
-    "config_files": [
-      "/Users/jldev/.config/mcphub/servers.json"
-    ],
+    "config_files": ["/Users/jldev/.config/mcphub/servers.json"],
     "pid": 5080,
     "port": 37373,
     "startTime": "2025-10-12T12:45:47.986Z",

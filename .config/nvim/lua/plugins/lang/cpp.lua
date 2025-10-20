@@ -1,7 +1,6 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    -- Optional: Setup for better LSP integration with Neovim
     opts = {
       servers = {
         clangd = {
