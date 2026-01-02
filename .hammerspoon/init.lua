@@ -17,6 +17,9 @@ local custom_height = options.custom_height
 -- =============================================================================
 -- CYCLING WINDOW SIZER SETUP
 -- =============================================================================
+--
+
+--* Custom Plugins
 
 -- 1. Define the sequences of sizes for each cycle
 local cycleSizes = {
@@ -93,6 +96,9 @@ hs.hotkey.bind(super, "s", function()
 end)
 hs.hotkey.bind(super, "n", function()
 	hs.application.launchOrFocus("Goodnotes")
+end)
+hs.hotkey.bind(super, "u", function()
+	hs.application.launchOrFocus("Things3")
 end)
 hs.hotkey.bind({ "alt", "shift" }, "R", function()
 	hs.reload()

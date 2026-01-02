@@ -1,0 +1,17 @@
+lastupdatecheck: 0
+recentrepos:
+    - /Users/joelevo/Projects/evosys/spotpilot
+    - /Users/joelevo/dotfiles
+    - /Users/joelevo/Projects/evosys/alarmdisplay
+    - /Users/joelevo/Projects/evosys/alarmhub
+    - /Users/joelevo/Projects/evosys/myevosys
+    - /Users/joelevo/Projects/evosys/spotpilot_app
+    - /Users/joelevo/Projects/evosys/floriplan
+    - /Users/joelevo/Projects/evosys/intervento
+startuppopupversion: 5
+didshowhunkstaginghint: true
+lastversion: 0.55.1
+customcommandshistory:
+    - q
+    - w
+hidecommandlog: false

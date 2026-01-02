@@ -1,0 +1,22 @@
+[user]
+	name = Joel Leimbacher
+	email = joel.leimbacher@evosys.ch
+[pull]
+	rebase = true
+[core]
+	excludesfile = /Users/joelevo/.gitignore_global
+[branch]
+	autoSetupRebase = always
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = "code --wait --diff  "
+[credential]
+	helper = osxkeychain
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[rerere]
+	enabled = true

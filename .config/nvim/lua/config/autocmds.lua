@@ -64,27 +64,27 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   end,
 })
 
-local last_saved_buf = nil
+-- local last_saved_buf = nil
+--
+-- local function autosave_buf(event)
+--   local buf = event.buf
+--   if buf == last_saved_buf then
+--     return
+--   end
+--
+--   if
+--     vim.bo[buf].buftype == ""
+--     and vim.bo[buf].modifiable
+--     and vim.bo[buf].buflisted
+--     and vim.api.nvim_buf_get_name(buf) ~= ""
+--   then
+--     vim.api.nvim_buf_call(buf, function()
+--       vim.cmd("silent! write")
+--     end)
+--     last_saved_buf = buf
+--   end
+-- end
 
-local function autosave_buf(event)
-  local buf = event.buf
-  if buf == last_saved_buf then
-    return
-  end
-
-  if
-    vim.bo[buf].buftype == ""
-    and vim.bo[buf].modifiable
-    and vim.bo[buf].buflisted
-    and vim.api.nvim_buf_get_name(buf) ~= ""
-  then
-    vim.api.nvim_buf_call(buf, function()
-      vim.cmd("silent! write")
-    end)
-    last_saved_buf = buf
-  end
-end
-
-vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave" }, {
-  callback = autosave_buf,
-})
+-- vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave" }, {
+--   callback = autosave_buf,
+-- })

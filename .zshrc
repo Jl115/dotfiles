@@ -303,3 +303,17 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 eval "$(zoxide init bash)"
 
 
+
+# bun completions
+[ -s "/Users/joelevo/.bun/_bun" ] && source "/Users/joelevo/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# qlty completions
+[ -s "/usr/local/share/zsh/site-functions/_qlty" ] && source "/usr/local/share/zsh/site-functions/_qlty"
+
+# qlty
+export QLTY_INSTALL="$HOME/.qlty"
+export PATH="$QLTY_INSTALL/bin:$PATH"

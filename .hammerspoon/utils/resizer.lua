@@ -11,9 +11,9 @@ function M.setWindowFrame(unit, height_percentage)
 	local screen_name = screen:name()
 
 	if screen_name == "Built-in Retina Display" then
-		height_percentage = 0.997
+		height_percentage = 1
 	else
-		height_percentage = height_percentage
+		height_percentage = 1
 	end
 
 	local final_h = screen_frame.h * height_percentage

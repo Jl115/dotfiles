@@ -66,3 +66,8 @@ vim.g.rainbow_delimiters = {
     "RainbowDelimiterCyan",
   },
 }
+
+local lazygit_config = vim.fn.expand("$HOME/.config/lazygit/config.yml")
+
+vim.g.lazygit_use_custom_config_file_path = 1
+vim.g.lazygit_config_file_path = lazygit_config
