@@ -1,22 +1,23 @@
 local opt = vim.opt
 
 -- general
-vim.opt.scrolloff = 15
+opt.scrolloff = 15
 vim.g.lazyvim_picker = "telescope"
-vim.opt.spell = true
-vim.opt.spelllang = { "en" }
+opt.spell = true
+opt.spelllang = { "en" }
+
 vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
 vim.g.custom_cursor_mode = true -- Toggle this setting
 vim.g.loaded_netrw = 1
 vim.g.flutter_tools_decorations = {}
 vim.g.loaded_netrwPlugin = 1
-vim.opt.termguicolors = true
+opt.termguicolors = true
 vim.o.textwidth = 120
 
 if vim.g.custom_cursor_mode then
-  vim.opt.guicursor = "n-v-c:block-blinkon500,i-ci-ve:ver25-blinkon200,r-cr-o:hor20-blinkon200"
+  opt.guicursor = "n-v-c:block-blinkon500,i-ci-ve:ver25-blinkon200,r-cr-o:hor20-blinkon200"
 else
-  vim.opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr-o:hor20"
+  opt.guicursor = "n-v-c:block,i-ci-ve:ver25,r-cr-o:hor20"
 end
 
 -- line numbers
@@ -66,8 +67,3 @@ vim.g.rainbow_delimiters = {
     "RainbowDelimiterCyan",
   },
 }
-
-local lazygit_config = vim.fn.expand("$HOME/.config/lazygit/config.yml")
-
-vim.g.lazygit_use_custom_config_file_path = 1
-vim.g.lazygit_config_file_path = lazygit_config

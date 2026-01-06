@@ -5,9 +5,9 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 -- Save buffer
-local ui = require("config.utils.ui")
-local map = require("config.utils.keymapper").safe_set
-local insert_log = require("config.utils.logger").insert_log
+local ui = require("config.helpers.ui")
+local map = require("config.helpers.keymapper").safe_set
+local insert_log = require("config.helpers.logger").insert_log
 
 map("v", "<leader>pl", insert_log, { desc = "Insert Debug Log", silent = true })
 -- Basic Editing & Navigation

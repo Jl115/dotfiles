@@ -317,3 +317,5 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # qlty
 export QLTY_INSTALL="$HOME/.qlty"
 export PATH="$QLTY_INSTALL/bin:$PATH"
+
+export PATH="$PATH:$HOME/.local/bin"

@@ -3,7 +3,7 @@
 
 -- load autocmgs for lsps
 -- require("config.lsp-autocmds")
-require("config.utils.healthcmds")
+require("config.helpers.healthcmds")
 
 local orig_buf_set_extmark = vim.api.nvim_buf_set_extmark
 vim.api.nvim_buf_set_extmark = function(buf, ns, row, col, opts)
@@ -64,27 +64,36 @@ vim.api.nvim_create_autocmd("BufWritePost", {
   end,
 })
 
--- local last_saved_buf = nil
---
--- local function autosave_buf(event)
---   local buf = event.buf
---   if buf == last_saved_buf then
---     return
---   end
---
---   if
---     vim.bo[buf].buftype == ""
---     and vim.bo[buf].modifiable
---     and vim.bo[buf].buflisted
---     and vim.api.nvim_buf_get_name(buf) ~= ""
---   then
---     vim.api.nvim_buf_call(buf, function()
---       vim.cmd("silent! write")
---     end)
---     last_saved_buf = buf
---   end
--- end
+local last_saved_buf = nil
 
--- vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave" }, {
---   callback = autosave_buf,
--- })
+local function autosave_buf(event)
+  local buf = event.buf
+  if buf == last_saved_buf then
+    return
+  end
+
+  if
+    vim.bo[buf].buftype == ""
+    and vim.bo[buf].modifiable
+    and vim.bo[buf].buflisted
+    and vim.api.nvim_buf_get_name(buf) ~= ""
+  then
+    vim.api.nvim_buf_call(buf, function()
+      vim.cmd("silent! write")
+    end)
+    last_saved_buf = buf
+  end
+end
+
+vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave" }, {
+  callback = autosave_buf,
+})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = "en.utf-8.add",
+  callback = function()
+    -- silent = true prevents the "Reading spell file..." message from blocking you
+    vim.cmd("silent! mkspell! %")
+    vim.notify("Spellfile compiled", vim.log.levels.INFO, { title = "Spell" })
+  end,
+})

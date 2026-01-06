@@ -12,12 +12,8 @@ return {
       "clang-format",
       -- LSPs
       "lua-language-server",
-      "vtsls", -- replaces typescript-language-server
       "typescript-language-server",
-      "sonarlint-language-server",
       "vue-language-server",
-      "shfmt",
-      "bash-language-server",
       "eslint_d",
       "dockerfile-language-server",
       "docker-compose-language-service",
@@ -32,6 +28,8 @@ return {
       "js-debug-adapter",
       "java-debug-adapter",
       "java-test",
+      -- Others
+      "sonarlint-language-server",
     },
   },
 }

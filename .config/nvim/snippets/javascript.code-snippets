@@ -182,7 +182,9 @@
 		"scope": "javascript,vue",
 		"prefix": "migration",
 		"body": [
-			"if (['local', 'development'].includes(process.env.NODE_ENV)) return;",
+			"if (process.env.NODE_ENV === 'local' || process.env.NODE_ENV === 'development') {",
+			"return;",
+			"}",
 			"const transaction = await queryInterface.sequelize.transaction();",
 			"try {",
 			"  return transaction.commit();",
