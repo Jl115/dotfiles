@@ -1,0 +1,36 @@
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+
+    tab name="APP" focus=true {
+        pane split_direction="vertical" {
+            pane command="npm" {
+                args "run" "serve"
+                cwd "/Users/joelevo/Projects/evosys/myevosys/server"
+                focus true
+            }
+            pane split_direction="horizontal" {
+                pane command="npm" {
+                    args "run" "serve"
+                    cwd "/Users/joelevo/Projects/evosys/myevosys/login"
+                }
+                pane command="npm" {
+                    args "run" "serve"
+                    cwd "/Users/joelevo/Projects/evosys/myevosys/client"
+                }
+            }
+        }
+    }
+
+    tab name="NVIM" {
+        pane cwd="/Users/joelevo/Projects/evosys/myevosys"
+    }
+
+    tab name="CONSOLE" {
+        pane cwd="/Users/joelevo/Projects/evosys/myevosys"
+    }
+}

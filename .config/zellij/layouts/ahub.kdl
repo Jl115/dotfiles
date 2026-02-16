@@ -1,0 +1,36 @@
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="zellij:compact-bar"
+        }
+    }
+    
+    tab name="APP" focus=true {
+        pane split_direction="vertical" {
+            pane command="npm" {
+                args "run" "serve"
+                cwd "/Users/joelevo/Projects/evosys/alarmhub/server"
+                focus true
+            }
+            pane split_direction="horizontal" {
+                pane command="npm" {
+                    args "run" "serve"
+                    cwd "/Users/joelevo/Projects/evosys/alarmhub/client"
+                }
+                pane command="npm" {
+                    args "run" "serve"
+                    cwd "/Users/joelevo/Projects/evosys/alarmhub/map"
+                }
+            }
+        }
+    }
+    
+    tab name="NVIM" {
+        pane cwd="/Users/joelevo/Projects/evosys/alarmhub"
+    }
+    
+    tab name="CONSOLE" {
+        pane cwd="/Users/joelevo/Projects/evosys/alarmhub"
+    }
+}

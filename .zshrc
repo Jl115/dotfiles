@@ -159,6 +159,42 @@ function resetNvim() {
   echo "Neovim configuration reset complete."
 }
 
+function hgo() {
+  local cmd_output
+  local limit=15
+
+  if [[ -n "$1" ]]; then
+      cmd_output=$(fc -l -n -500 | grep -i "$1" | tail -n $limit)
+  else
+      cmd_output=$(fc -l -n -$limit)
+  fi
+
+  local matches=("${(f)cmd_output}")
+  
+  if [[ -z "${matches[*]}" ]]; then
+      echo "No matches found."
+      return 1
+  fi
+
+  echo -e "\033[1;34m--- History ---\033[0m"
+  local i
+  for i in {1..${#matches[@]}}; do
+      [[ -n "${matches[$i]}" ]] && printf "\033[1;32m[%2d]\033[0m %s\n" "$i" "${matches[$i]}"
+  done
+
+  echo -ne "\n\033[1;33mRun # (1-${#matches[@]}): \033[0m"
+  read -r choice
+  
+  if [[ "$choice" =~ ^[0-9]+$ ]] && (( choice >= 1 && choice <= ${#matches[@]} )); then
+      local cmd="${matches[$choice]}"
+      cmd=$(echo "$cmd" | sed 's/^[* ]*//')
+      
+      print -s "$cmd" 
+      eval "$cmd"
+  else
+      [[ -n "$choice" ]] && echo "Cancelled."
+  fi
+}
 
 function openVault() {
   # Check if the first argument ($1) is empty
@@ -231,6 +267,21 @@ function migration() {
    npx sequelize-cli migration:generate --name "$1"
 }
 
+function z_launch() {
+    # Usage: z_launch "session_name" "layout_file"
+    local session_name=$1
+    local layout_file=$2
+
+    # Check if session exists (even if dead/detached)
+    if zellij list-sessions 2>/dev/null | grep -q "^$session_name"; then
+        echo "Resurrecting session: $session_name"
+        zellij attach "$session_name"
+    else
+        echo "Creating new session: $session_name"
+        zellij --session "$session_name" --new-session-with-layout "$layout_file"
+    fi
+}
+
 #* ALIASES
 alias resetDb="npx sequelize db:drop && npx sequelize db:create && npx sequelize db:migrate && npx sequelize db:seed:all"
 alias clear="clear && printf ‘\e[3J’"
@@ -258,7 +309,23 @@ alias cdl='zoxide query -l -s | less'
 alias cda='zoxide add'
 alias devAldi="ssh debian@dev.app.alarmdisplay.ch"
 alias ovo="openVault"
-
+# Zellij
+alias zj="zellij"
+alias zc="zellij connect"
+alias zls="zellij ls"
+alias znew="zellij new"
+alias zkillall="zellij kill-all-sessions"
+alias zattach="zellij attach"
+#Opencode
+alias oc="opencode"
+alias ocd="opencode --cd"
+alias ocls="opencode --clear"
+alias code="opencode"
+alias ahub='z_launch AHUB ahub'
+alias flor='z_launch FLOR flor'
+alias spot='z_launch SPOT spot'
+alias aldi='z_launch ALDI aldi'
+alias myev='z_launch MYEV myev'
 
 
 ulimit -n 4096
@@ -300,7 +367,7 @@ export PATH="$PATH:$(go env GOPATH)/bin"
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /Users/joelevo/.dart-cli-completion/zsh-config.zsh ]] && . /Users/joelevo/.dart-cli-completion/zsh-config.zsh || true
 ## [/Completion]
-eval "$(zoxide init bash)"
+eval "$(zoxide init zsh)"
 
 
 
@@ -318,4 +385,15 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export QLTY_INSTALL="$HOME/.qlty"
 export PATH="$QLTY_INSTALL/bin:$PATH"
 
+
+#  pip user installs
 export PATH="$PATH:$HOME/.local/bin"
+
+# Added by Antigravity
+export PATH="/Users/joelevo/.antigravity/antigravity/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/joelevo/.antigravity/antigravity/bin:$PATH"
+
+# opencode
+export PATH=/Users/joelevo/.opencode/bin:$PATH

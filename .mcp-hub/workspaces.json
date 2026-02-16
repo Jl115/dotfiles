@@ -1,15 +1,1 @@
-{
-  "37373": {
-    "cwd": "/Users/joelevo/Projects/evosys/alarmhub",
-    "config_files": [
-      "/Users/joelevo/.config/mcphub/servers.json"
-    ],
-    "pid": 81662,
-    "port": 37373,
-    "startTime": "2025-12-17T10:29:00.618Z",
-    "state": "active",
-    "activeConnections": 1,
-    "shutdownStartedAt": null,
-    "shutdownDelay": null
-  }
-}
+{}

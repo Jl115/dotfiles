@@ -1,0 +1,270 @@
+{
+	"TypeScript Singleton Class": {
+		"scope": "typescript",
+		"prefix": "singleton",
+		"body": [
+			"export default class ${1:ClassName} {",
+			"  // Static Properties",
+			"  private static instance: ${1:ClassName};",
+			"",
+			"  // Readonly Properties",
+			"  private readonly serviceName: string = '${1:ClassName}';",
+			"",
+			"  // Properties",
+			"  ${2:private port: number;}",
+			"",
+			"  private constructor() {",
+			"    // Initialization",
+			"    console.log('\\x1b[33m%s\\x1b[0m', `[${1:ClassName}] Initialized --------------------`);",
+			"    this.initialize();",
+			"  }",
+			"",
+			"  // Static Methods",
+			"  public static getInstance(): ${1:ClassName} {",
+			"    if (!${1:ClassName}.instance) {",
+			"      ${1:ClassName}.instance = new ${1:ClassName}();",
+			"    }",
+			"    return ${1:ClassName}.instance;",
+			"  }",
+			"",
+			"  // Public Methods",
+			"  public ${3:methodName}(): void {",
+			"    try {",
+			"      $0",
+			"    } catch (error) {",
+			"      console.error(`[Error] in ${1:ClassName} ${3:methodName}:`, error);",
+			"    }",
+			"  }",
+			"",
+			"  // Private Methods",
+			"  private initialize(): void {",
+			"    // Setup listeners or config",
+			"  }",
+			"",
+			"  // Getters and Setters",
+			"  public get ServiceName(): string {",
+			"    return this.serviceName;",
+			"  }",
+			"}"
+		],
+		"description": "Full Singleton with organized headers"
+	},
+	"TS Abstract Class": {
+		"scope": "typescript",
+		"prefix": "abstractc",
+		"body": [
+			"/**",
+			" * Base class for ${1:BaseClassName}",
+			" */",
+			"export default abstract class ${1:BaseClassName} {",
+			"  // Properties",
+			"  protected readonly id: string;",
+			"",
+			"  constructor(id: string) {",
+			"    this.id = id;",
+			"  }",
+			"",
+			"  // Abstract Methods",
+			"  abstract ${2:execute}(payload: any): Promise<void>;",
+			"",
+			"  // Protected Methods",
+			"  protected log(message: string): void {",
+			"    console.log(`[${1:BaseClassName}]: `, ${message});",
+			"  }",
+			"}"
+		],
+		"description": "Abstract base class with structure"
+	},
+	"TS Generic Repository": {
+		"scope": "typescript",
+		"prefix": "repo",
+		"body": [
+			"export default class ${1:Repository}<T> {",
+			"  // Properties",
+			"  private items: Map<string, T> = new Map();",
+			"",
+			"  // Public Methods",
+			"  public add(id: string, item: T): void {",
+			"    this.items.set(id, item);",
+			"  }",
+			"",
+			"  public get(id: string): T | undefined {",
+			"    return this.items.get(id);",
+			"  }",
+			"",
+			"  public getAll(): T[] {",
+			"    return Array.from(this.items.values());",
+			"  }",
+			"}"
+		],
+		"description": "Generic class pattern with structure"
+	},
+	"TS Factory Method": {
+		"scope": "typescript",
+		"prefix": "factoryc",
+		"body": [
+			"export default class ${1:FactoryName} {",
+			"  // Static Methods",
+			"  public static create(type: '${3:TypeA}' | '${5:TypeB}'): ${2:ISomeInterface} {",
+			"    switch (type) {",
+			"      case '${3:TypeA}':",
+			"        return new ${4:ConcreteClassA}();",
+			"      case '${5:TypeB}':",
+			"        return new ${6:ConcreteClassB}();",
+			"      default:",
+			"        throw new Error(`Unknown type: ${type}`);",
+			"    }",
+			"  }",
+			"}"
+		],
+		"description": "Factory pattern with structure"
+	},
+	"TS Builder Pattern": {
+		"scope": "typescript",
+		"prefix": "builder",
+		"body": [
+			"export default class ${1:BuilderName} {",
+			"  // Properties",
+			"  private data: Partial<${2:TargetClass}> = {};",
+			"",
+			"  // Public Methods (Setters)",
+			"  public setName(name: string): this {",
+			"    this.data.name = name;",
+			"    return this;",
+			"  }",
+			"",
+			"  public setOptions(opts: any): this {",
+			"    this.data.options = opts;",
+			"    return this;",
+			"  }",
+			"",
+			"  // Public Methods (Build)",
+			"  public build(): ${2:TargetClass} {",
+			"    return new ${2:TargetClass}(this.data);",
+			"  }",
+			"}"
+		],
+		"description": "Builder pattern with structure"
+	},
+	"TS Private Field with Accessors": {
+		"scope": "typescript",
+		"prefix": "prop",
+		"body": [
+			"  // Properties",
+			"  private _${1:propertyName}: ${2:string};",
+			"",
+			"  // Getters and Setters",
+			"  public get ${1:propertyName}(): ${2:string} {",
+			"    return this._${1:propertyName};",
+			"  }",
+			"",
+			"  public set ${1:propertyName}(value: ${2:string}) {",
+			"    this._${1:propertyName} = value;",
+			"  }"
+		],
+		"description": "Encapsulated property with structure comments"
+	},
+	"TS Server Log (Yellow)": {
+		"scope": "typescript",
+		"prefix": "logS",
+		"body": [
+			"console.log('\\x1b[33m%s\\x1b[0m', `[${1:Context}] $2 --------------------`, ${3:$2});"
+		],
+		"description": "Log output to server console with yellow color"
+	},
+	"TS Try Catch": {
+		"scope": "typescript",
+		"prefix": "try",
+		"body": [
+			"try {",
+			"  $2",
+			"} catch (error) {",
+			"  console.error(`[Error] in $TM_FILENAME_BASE $1: `, error);",
+			"}"
+		],
+		"description": "Basic Try Catch with filename context"
+	},
+	"TS Server Try Catch (Response)": {
+		"scope": "typescript",
+		"prefix": "trys",
+		"body": [
+			"try {",
+			"  $2",
+			"} catch (error) {",
+			"  console.error(`[Error] in $TM_FILENAME_BASE $1: `, error);",
+			"  if (res?.headersSent) return;",
+			"  return res.status(500).send({",
+			"    status: false,",
+			"    code: 500,",
+			"    detail: `[Error] in $TM_FILENAME_BASE $1`,",
+			"    message: 'Internal Server Error',",
+			"  });",
+			"}"
+		],
+		"description": "Try Catch that returns a 500 error response"
+	},
+	"TS Async Function": {
+		"scope": "typescript",
+		"prefix": "func",
+		"body": [
+			"const ${1:functionName} = async ($2): Promise<void> => {",
+			"  try {",
+			"    $3",
+			"  } catch (error) {",
+			"    console.error(`[Error] in $TM_FILENAME_BASE ${1:functionName}: `, error);",
+			"  }",
+			"};"
+		],
+		"description": "Async arrow function with error handling"
+	},
+	"TS Sleep": {
+		"scope": "typescript",
+		"prefix": "sleep",
+		"body": [
+			"await new Promise((resolve) => setTimeout(resolve, ${1:1000}));"
+		],
+		"description": "Awaitable sleep function"
+	},
+	"TS Headers Sent Check": {
+		"scope": "typescript",
+		"prefix": "hS",
+		"body": [
+			"if (res?.headersSent) return;"
+		],
+		"description": "Check if headers are already sent"
+	},
+	"TS Todo Block": {
+		"scope": "typescript",
+		"prefix": "todo",
+		"body": [
+			"// TODO: [${1:User}] - ${2:Description} ($CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE)"
+		],
+		"description": "Standardized TODO comment with date"
+	},
+	"TS Deep Copy": {
+		"scope": "typescript",
+		"prefix": "unbind",
+		"body": [
+			"const ${1:newObj} = structuredClone(${2:oldObj});"
+		],
+		"description": "Quick deep copy (unbind)"
+	},
+	"TS Method Decorator (Logging)": {
+		"scope": "typescript",
+		"prefix": "declog",
+		"body": [
+			"export function Log(target: any, propertyKey: string, descriptor: PropertyDescriptor) {",
+			"  const originalMethod = descriptor.value;",
+			"",
+			"  descriptor.value = function (...args: any[]) {",
+			"    console.log(`[Log] Calling ${propertyKey} with:`, args);",
+			"    const result = originalMethod.apply(this, args);",
+			"    console.log(`[Log] Result:`, result);",
+			"    return result;",
+			"  };",
+			"  return descriptor;",
+			"}"
+		],
+		"description": "Decorator to automatically log method inputs and outputs"
+	}
+}

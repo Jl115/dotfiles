@@ -58,3 +58,12 @@ planTemplates
 contentTitle
 DefaultFirebaseOptions
 FlutterFire
+Readonly
+cachedOrganizations
+express
+SpotPilot
+websocket
+reconnectionAttempts
+reconnectionDelay
+auth
+imei

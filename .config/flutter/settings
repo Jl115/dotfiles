@@ -1,4 +1,5 @@
 {
   "enable-macos-desktop": true,
-  "enable-web": true
+  "enable-web": true,
+  "ios-signing-cert": "Apple Development: joel leimbacher (9QM6JKT5KT)"
 }
